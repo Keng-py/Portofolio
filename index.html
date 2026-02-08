@@ -295,6 +295,42 @@
       background-repeat: no-repeat;
     }
 
+    #services {
+      padding: 60px 24px;
+      max-width: 900px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .servs {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 24px;
+      margin-top: 40px;
+    }
+
+    .tech, .web, .styling, .apps {
+      background: rgba(255,255,255,0.08);
+      border-radius: 12px;
+      padding: 20px;
+      text-align: left;
+    }
+
+    .intro-services {
+      color: #ff4fd8;
+      font-weight: 500;
+      margin-bottom: 8px;
+      margin-top: 12px;
+      text-transform: uppercase;
+    }
+
+    .description-services {
+      max-width: 600px;
+      margin: 0 auto;
+      opacity: 0.8;
+      line-height: 1.6;
+    }
+
     @media (max-width: 768px) {
       header {
         padding: 20px 28px;
@@ -392,7 +428,39 @@
   </section>
   <section id="Services">
     <!-- Services content goes here -->
-     
+     <div class="intro-services">
+        what i offer
+     </div>
+     <h1>my services</h1>
+     <div class="description-services">
+        I offer a variety of services including web design, development, and consulting. My goal is to help you create a strong online presence that effectively communicates your brand and engages your audience.
+     </div>
+     <div class="servs">
+        <div class="web">
+          <img src="" alt="">
+          <h2>Web Design & Development</h2>
+          <p>I create responsive and visually appealing websites tailored to your needs.</p>
+          <a href="#">Read more -></a>
+        </div>
+        <div class="styling">
+          <img src="" alt="">
+          <h2>Designing</h2>
+          <p>I provide professional UI/UX design services to enhance user experience and engagement.</p>
+          <a href="#">Read more -></a>
+        </div>
+        <div class="apps">
+          <img src="" alt="">
+          <h2>App Development</h2>
+          <p>I develop mobile applications that are user-friendly and optimized for performance.</p>
+          <a href="#">Read more -></a>
+        </div>
+        <div class="tech">
+          <img src="" alt="">
+          <h2>Tech Consulting</h2>
+          <p>I offer expert advice on technology strategies to help your business grow and succeed.</p>
+          <a href="#">Read more -></a>
+        </div>
+     </div>
   </section>
   <script>
     (function(){

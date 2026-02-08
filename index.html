@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portfolio Hero</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: Inter, system-ui, -apple-system, sans-serif;
+    }
+
+    body {
+      min-height: 100vh;
+      background: radial-gradient(circle at top, #3b0a57 0%, #120018 55%, #09000d 100%);
+      color: #fff;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 24px 64px;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      
+    }
+
+    .logo {
+      font-weight: 600;
+      letter-spacing: 0.5px;
+    }
+
+    nav {
+      display: flex;
+      gap: 28px;
+      padding: 12px 28px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.08);
+      backdrop-filter: blur(10px);
+      font-size: 0.9rem;
+    }
+
+    nav a {
+      color: #ddd;
+      text-decoration: none;
+      opacity: 0.8;
+    }
+
+    nav a:hover {
+      opacity: 1;
+    }
+
+    .cta {
+      padding: 10px 22px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.25);
+      background: transparent;
+      color: #fff;
+      cursor: pointer;
+    }
+
+    main {
+      min-height: calc(100vh - 120px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+
+    .hero {
+      max-width: 760px;
+      padding: 0 24px;
+    }
+
+    .avatar {
+      width: 92px;
+      height: 92px;
+      border-radius: 50%;
+      background: #fff;
+      margin: 0 auto 18px;
+      overflow: hidden;
+    }
+
+    .avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .intro {
+      font-size: 0.95rem;
+      opacity: 0.85;
+      margin-bottom: 10px;
+    }
+
+    h1 {
+      font-size: clamp(2.4rem, 5vw, 3.4rem);
+      font-weight: 600;
+      line-height: 1.2;
+      margin-bottom: 18px;
+    }
+
+    .desc {
+      font-size: 0.95rem;
+      opacity: 0.7;
+      max-width: 520px;
+      margin: 0 auto 28px;
+      line-height: 1.6;
+    }
+
+    .buttons {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+    }
+
+    .primary {
+      padding: 12px 26px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, #ff4fd8, #ff8f6b);
+      border: none;
+      color: #111;
+      font-weight: 500;
+      cursor: pointer;
+    }
+
+    .secondary {
+      padding: 12px 26px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.2);
+      color: #fff;
+      cursor: pointer;
+    }
+
+    .header-controls {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+    }
+
+    /* Light theme overrides */
+    body.light {
+      background: linear-gradient(180deg,#f6f7fb 0%, #e9eefc 100%);
+      color: #0b1220;
+    }
+
+    body.light nav {
+      background: rgba(11,18,32,0.04);
+    }
+
+    body.light nav a {
+      color: #0b1220;
+      opacity: 0.9;
+    }
+
+    body.light .cta {
+      color: #0b1220;
+      border-color: rgba(11,18,32,0.06);
+      background: rgba(255,255,255,0.7);
+    }
+
+    body.light .secondary {
+      background: rgba(11,18,32,0.04);
+      color: #0b1220;
+      border-color: rgba(11,18,32,0.06);
+    }
+
+    html{
+      scroll-behavior: smooth;
+    }
+
+    #About {
+      padding: 60px 24px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .top {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .about-introduction {
+      color: #ff4fd8;
+      font-weight: 500;
+      margin-bottom: 8px;
+    }
+
+    .about-heading {
+      font-size: 2.4rem;
+      font-weight: 600;
+    }
+
+    .bottom {
+      display: flex;
+      gap: 40px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .first img {
+      width: 280px;
+      border-radius: 12px;
+    }
+
+    .about-description {
+      font-size: 1rem;
+      line-height: 1.6;
+      margin-bottom: 24px;
+      max-width: 500px;
+    }
+
+    .skills {
+      display: flex;
+      gap: 40px;
+      flex-wrap: wrap;
+      margin-bottom: 24px;
+    }
+
+    .skill-heading {
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+
+    ul {
+      list-style: none;
+    }
+
+    li {
+      margin-bottom: 6px;
+      opacity: 0.8;
+    }
+
+    @media (max-width: 768px) {
+      header {
+        padding: 20px 28px;
+      }
+      nav {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <section id="Home">
+    <header>
+      <div class="logo">Kenneth Anthony Ng.</div>
+        <nav>
+          <a href="#Home">Home</a>
+          <a href="#About">About</a>
+          <a href="#Services">Services</a>
+          <a href="#Work">My Work</a>
+          <a href="#Contact">Contact</a>
+        </nav>
+      <div class="header-controls">
+        <button id="theme-toggle" class="cta" aria-label="Toggle theme">🌙</button>
+        <button class="cta">Contact</button>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="avatar">
+          <img src="avatar1.jpg" alt="avatar"/>
+        </div>
+        <div class="intro">Hi! I'm Kenneth Anthony Ng 👋</div>
+        <h1>frontend web developer<br/>based in London.</h1>
+        <p class="desc">
+          I am a frontend developer from California, with 3+ years of experience in multiple companies like Microsoft, Meta and Apple.
+        </p>
+        <div class="buttons">
+          <button class="primary">Contact me →</button>
+          <button class="secondary">My resume ↓</button>
+        </div>
+      </section>
+    </main>
+  </section>
+  <section id="About">
+    <div class="top">
+      <div class="about-introduction">Introduction</div>
+      <div class="about-heading">About Me</div>
+    </div>
+    <div class="bottom">
+      <div class="first">
+        <img src="avatar1.jpg" alt="avatar"/>
+      </div>
+      <div class="second">
+        <div class="about-description">
+          I am a student from IGS(ignatius global school) studying in grade 8. I love coding and building projects.I am currently learning web development and also learning new programming languages.
+        </div>
+        <div class="skills">
+          <div class="languages">
+            <div class="skill-heading">Languages I speak</div>
+            <ul>
+              <li>HTML</li>
+              <li>CSS</li>
+              <li>JavaScript</li>
+              <li>Python</li>
+              <li>C++</li>
+            </ul>
+          </div>
+          <div class="education">
+            <div class="skill-heading">Education</div>
+            <ul>
+              <li>IGS(ignatius global school)</li>
+              <li>Studying in grade 8</li>
+            </ul>
+          </div>
+          <div class="project">
+            <div class="skill-heading">Projects</div>
+            <ul>
+              <li>Portfolio Website</li>
+              <li>Calculator</li>
+              <li>To-do List</li>
+            </ul>
+          </div>
+        </div>
+        <div class="tools">
+          <div class="skill-heading">Tools I use</div>
+          <ul>
+            <li>VS Code</li>
+            <li>GitHub</li>
+            <li>CodePen</li>
+            <li>Figma</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+  <script>
+    (function(){
+      const btn = document.getElementById('theme-toggle');
+      const body = document.body;
+      const saved = localStorage.getItem('theme');
+      const prefersLight = window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches;
+      const initial = saved || (prefersLight ? 'light' : 'dark');
+      if(initial === 'light'){
+        body.classList.add('light');
+        btn.textContent = '☀️';
+        btn.setAttribute('aria-label', 'Switch to dark mode');
+      } else {
+        btn.textContent = '🌙';
+        btn.setAttribute('aria-label', 'Switch to light mode');
+      }
+
+      btn.addEventListener('click', function(){
+        const isLight = body.classList.toggle('light');
+        if(isLight){
+          localStorage.setItem('theme','light');
+          btn.textContent = '☀️';
+          btn.setAttribute('aria-label','Switch to dark mode');
+        } else {
+          localStorage.setItem('theme','dark');
+          btn.textContent = '🌙';
+          btn.setAttribute('aria-label','Switch to light mode');
+        }
+      });
+    })();
+  </script>
+</body>
+</html>

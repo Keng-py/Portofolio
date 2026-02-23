@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CAROUSEL</title>
+    <style>
+        body{
+            margin: 0;
+        }
+        #carousel{
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+            margin: auto;
+            padding: 0;
+        }
+
+        #carousel-bks{
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .slide{
+            min-width: 100%;
+            object-fit: cover;
+        }
+
+        #prev, #next{
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            color: white;
+            border: none;
+            font-size: 2rem;
+            padding: 20px;
+            cursor: pointer;
+            z-index: 99;
+        }
+
+        #prev{
+            left: 10px;
+            border-radius: 50%;
+        }
+
+        #next{
+            right: 10px;
+            border-radius: 50%;
+        }
+
+        .part{
+            width: 100%;
+        }
+
+        nav {
+            background-color: #1818b1;
+            color: white;
+            padding: 1rem 2rem;
+            position: relative;
+            display: flex;
+        }
+
+        nav .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        nav .menu {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        nav .menu a {
+            color: white;
+            text-decoration: none;
+            position: relative;
+            padding: 0.5rem 0;
+            transition: color 0.3s ease;
+        }
+
+        .menu-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .menu{
+            margin-left: 250%; 
+        }
+
+        @media(max-width:667px){
+            body{
+                display: block;
+            }
+
+            nav{
+                width: 100%;
+            }
+
+            .menu{
+                margin-left: 10%;
+            }
+
+            #carousel{
+                width: 117%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="part">
+    <nav>
+        <div class="menu-container">
+            <div class="logo">Store.app</div>
+            <ul class="menu">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Product</a></li>
+                <li><a href="#">Gallery</a></li>
+            </ul>
+        </div>
+    </nav>
+    <div id="carousel">
+        <button id="prev">⏮️</button>
+
+        <div id="carousel-bks">
+            <img src="img/best.jpg" alt="banner 1" class="slide">
+            <img src="img/giga.jpg" alt="banner 2" class="slide">
+            <img src="img/a1010.jpg" alt="banner 3" class="slide">
+        </div>
+        <button id="next">⏭️</button>
+    </div>
+    </div>
+
+    <script>
+        const slide = document.querySelectorAll('.slide');
+        const bks = document.getElementById('carousel-bks');
+        const nextBtn = document.getElementById('next');
+        const prevBtn = document.getElementById('prev');
+
+        let currentIndex = 0
+
+        function showSlide(index){
+            bks.style.transform = `translateX(-${index * 100}%)`;
+        }
+
+        nextBtn.addEventListener('click', () => {
+            currentIndex = (currentIndex + 1) % slide.length;
+            showSlide(currentIndex);
+        });
+        prevBtn.addEventListener('click', () => {
+            currentIndex = (currentIndex - 1 + slide.length) % slide.length;
+            showSlide(currentIndex);
+        });
+    </script>
+</body>
+</html>

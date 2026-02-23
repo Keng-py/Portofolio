@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PASSWORD GENERATOR</title>
+    <style>
+        body{
+            font-family: Arial, sans-serif;
+            background: linear-gradient(360deg,rgb(62, 60, 60),rgb(245, 232, 232),rgb(62, 60, 60));
+            margin: 0;
+            background-repeat: no-repeat;
+            padding: 20px;
+            height: 93vh;
+        }
+
+        h1{
+            text-align: center;
+            color: #333;
+            animation: pulse-glow 2s infinite;
+            text-decoration: underline;
+        }
+
+        .container{
+            max-width: 400px;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            height: 92%;
+            display: grid;
+            justify-content: space-evenly;
+            animation: border-glow 2s infinite;
+        }
+
+        input[type="checkbox"]{
+            width: 22px;
+            height: 22px;
+            margin: 0 10px;
+            cursor: pointer;
+            accent-color: #333;
+            vertical-align: middle;
+            animation: border-glow 2s infinite;
+        }
+
+        label{
+            font-size: 15pt;
+        }
+
+        button{
+            background-color: #333;
+            border: none;
+            margin-bottom: 15px;
+            padding: 5px;
+            color: aliceblue;
+            border: 2px solid aliceblue;
+            transition: 0.3s all ease;
+        }
+
+        button:hover{
+            cursor: pointer;
+            scale: 1.1;
+        }
+
+        input{
+            background-color: #333;
+            border: none;
+            margin-bottom: 15px;
+            padding: 5px;
+            color: aliceblue;
+            border: 2px solid aliceblue;
+            transition: 0.3s all ease;
+        }
+
+        #len{
+            margin-bottom: -20px;
+        }
+
+        .p{
+            display: flex;
+        }
+
+        .output {
+            background-color: #333;
+            border: none;
+            padding: 5px;
+            color: aliceblue;
+            border: 2px solid aliceblue;
+            transition: 0.3s all ease;
+            display: flex;
+            align-items: center;
+            padding-left: 15px;
+        }
+
+        @keyframes border-glow {
+            0%, 100% {
+                box-shadow: 0 0 20px aliceblue, 0 0 30px aliceblue, 0 0 40px aliceblue;
+            }
+            50% {
+                box-shadow: 0 0 15px aliceblue, 0 0 18px aliceblue, 0 0 30px aliceblue;
+            }
+        }
+
+        @keyframes pulse-glow {
+            0%, 100% {
+                text-shadow:
+                0 0 5px aliceblue,
+                0 0 10px aliceblue,
+                0 0 20px aliceblue,
+                0 0 40px aliceblue;
+            }
+            50% {
+                text-shadow:
+                0 0 2px aliceblue,
+                0 0 4px aliceblue,
+                0 0 10px aliceblue,
+                0 0 20px aliceblue;
+            }
+        }
+
+        @media(max-width:667px){
+            body{
+                height: 94vh;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+    <h1>Password Generator🔑</h1>
+    <label for="">
+        Password Length :
+    </label>
+    <input type="number" id="len" value="12" min="6"><br>
+    <div class="p">
+        <label for="">
+            Include Uppercase
+        </label>
+        <input type="checkbox" id="upper" checked>
+    </div>
+    <div class="p">
+        <label for="">
+            Include Number
+        </label>
+        <input type="checkbox" id="nums" checked>
+    </div>
+    <div class="p">
+        <label for="">
+            Include Characters
+        </label>
+        <input type="checkbox" id="special" checked><br>
+    </div>
+
+    <button onclick="generate()">Generate Password</button>
+    <button onclick="reset()">Reset</button>
+    <div class="output" id="passOut">
+        Your Password Show Here!
+    </div>
+    </div>
+
+    <script>
+        function genPass(len, upper, nums, special){
+            const lower = "abcdefghijklmnopqrstuvwxyz";
+            const upperChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+            const numChars = "0123456789";
+            const specialChars = "!@#$%^&*()_+|-=[]{}:;";
+            let chars = lower;
+
+            if(upper) chars += upperChars;
+            if(nums) chars += numChars;
+            if(special) chars += specialChars;
+
+            let pass = "";
+            for (let i = 0; i < len; i++){
+                const randInt = Math.floor(Math.random() * chars.length);
+                pass += chars[randInt];
+            }
+            return pass;
+        }
+        function generate(){
+            const len = parseInt(document.getElementById("len").value);
+            const upper = document.getElementById("upper").checked;
+            const nums = document.getElementById("nums").checked;
+            const special = document.getElementById("special").checked;
+
+            const pass = genPass(len, upper, nums, special);
+            document.getElementById("passOut").textContent = pass;
+        }
+
+        function reset(){
+            document.getElementById("len").value = 12
+            document.getElementById("upper").checked = true;
+            document.getElementById("nums").checked = true;
+            document.getElementById("special").checked = true;
+            document.getElementById("passOut").textContent = "Your Password Has been reset"
+        }
+    </script>
+</body>
+</html>

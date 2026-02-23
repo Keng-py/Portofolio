@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>20 OKTOBER</title>
+    <style>
+        body{
+            font-family: 'poppins',sans-serif;
+            font-weight: 550;
+            background: linear-gradient(360deg,rgb(0, 119, 255),rgb(7, 209, 240));
+            padding: 0px;
+            margin: 0px;
+            overflow: hidden;
+        }
+
+        nav {
+            background-color: #1818b1;
+            color: white;
+            padding: 0.2rem 2rem;
+            position: relative;
+        }
+
+        h2{
+            display: flex;
+            justify-content: center;
+        }
+        
+        button{  
+            background-color: darkblue;
+            border-radius: 10px;
+            padding: 5%;
+            border: 3px solid rgb(0, 72, 255);
+            color: aliceblue;
+            padding-left: 2%;
+            padding-right: 2%;
+            transition: 0.3s;
+        }
+
+        .part{
+            width: 95%;
+            height: 30%;
+            background-color: rgb(17, 99, 231);
+            border-radius: 5px;
+            margin-left: 2%;
+            padding-left: 15px;
+            box-shadow: 2px 5px 2px 4px rgba(31, 188, 188, 0.772);
+            padding-top: 5px;
+            padding-bottom: 50px;
+            margin-top: 3%;
+            color: whitesmoke;
+            display: grid;
+            justify-content: space-between;
+        }
+
+         @keyframes secondary-glow {
+            0%, 100% {
+                box-shadow: 0 0 10px rgba(17, 75, 201, 0.963), 0 0 20px rgba(17, 75, 201, 0.963), 0 0 30px rgba(17, 75, 201, 0.963);
+            }
+            50% {
+                box-shadow: 0 0 5px rgb(16, 173, 241), 0 0 8px rgb(16, 173, 241), 0 0 20px rgb(16, 173, 241);
+            }
+        }
+
+        button:hover{
+            cursor: pointer;
+            scale: 1.1;
+            animation: secondary-glow 2s infinite;
+        }
+
+        .container{
+            width: 100%;
+            height: 100%;
+            display: flex;
+        }
+
+        .first {
+            width: 70%;
+            overflow-y: scroll;
+            overflow-x: hidden;
+            max-height: 85vh;
+            padding-bottom: 10%;
+            scrollbar-color: brown rgb(191, 255, 0);
+        }
+
+        .second {
+            width: 40%;
+            height: 100%;
+        }
+
+        .abc {
+            display: grid;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+        }
+
+        h4 {
+            font-weight: bold;
+            font-size: 40pt;
+            margin-bottom: 0;
+        }
+
+        .score {
+            margin: 0;
+            height: 40vh;
+            border-radius: 10px;
+            text-align: center;
+            align-items: center;
+            display: flex;
+            justify-content: center;
+            background-color: rgb(17, 99, 231);
+            color: white;
+            margin-bottom: 10px;
+            box-shadow: 1px 3px 3px 3px rgba(31, 188, 188, 0.772);
+            font-size: 50pt;
+        }
+
+        input{
+            cursor: pointer;
+        }
+        @media(max-width:667px){
+            body {
+                display: grid;
+                overflow: scroll;
+            }
+            .container {
+                display: grid;
+            }
+
+            .first {
+                width: 100%;
+            }
+            
+            .second{
+                width: 100%;
+            }
+
+            .part {
+                width: 90% ;
+                height: 40%;
+                font-size: 10pt;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav><h2>Quiz Coding Javascript By Kenneth Anthony Ng 8A</h2></nav>
+    <div class="container">
+        <div class="first">
+            <div class="part">
+                <p>Soal 1 : x^2 apakah ini cara yang benar untuk penulisan di javascript?</p>
+                <span><input type="radio" name="soal1" value="a">a. ya</span><br>
+                <span><input type="radio" name="soal1" value="b">b. salah</span><br>
+                <span><input type="radio" name="soal1" value="c">c. seharusnya xx</span><br>
+                <span><input type="radio" name="soal1" value="d">d. jawaban di atas tidak ada yang benar</span><br>
+            </div>
+            <div class="part">
+                <p>Soal 2 : apa fungsi yang digunakan untuk memanggil id dari html ?</p>
+                <span><input type="radio" name="soal2" value="a">a. document.getElementById</span><br>
+                <span><input type="radio" name="soal2" value="b">b. document.getElementByClass</span><br>
+                <span><input type="radio" name="soal2" value="c">c. document.getElementByName</span><br>
+                <span><input type="radio" name="soal2" value="d">d. document.getElementByTag</span><br>
+            </div>
+            <div class="part">
+                <p>Soal 3 : apa fungsi yang digunakan untuk memanggil class dari html ?</p>
+                <span><input type="radio" name="soal3" value="a">a. document.getElementById</span><br>
+                <span><input type="radio" name="soal3" value="b">b. document.getElementByClass</span><br>
+                <span><input type="radio" name="soal3" value="c">c. document.getElementByName</span><br>
+                <span><input type="radio" name="soal3" value="d">d. document.getElementByTag</span><br>
+            </div>
+            <div class="part">
+                <p>Soal 4 : let buah = ['Apel','Pisang','Jeruk'] mana yang benar untuk mengeluarkan kata Pisang ?</p>
+                <span><input type="radio" name="soal4" value="a">a. console.log(Pisang)</span><br>
+                <span><input type="radio" name="soal4" value="b">b. console.log(buah)</span><br>
+                <span><input type="radio" name="soal4" value="c">c. console.log(buah[2])</span><br>
+                <span><input type="radio" name="soal4" value="d">d. console.log(buah[1])</span><br>
+            </div>
+            <div class="part">
+                <p>Soal 5 : let x = 1987 console.log(x*2)</p>
+                <span><input type="radio" name="soal5" value="a">a. 3798</span><br>
+                <span><input type="radio" name="soal5" value="b">b. 3478</span><br>
+                <span><input type="radio" name="soal5" value="c">c. 3974</span><br>
+                <span><input type="radio" name="soal5" value="d">d. 3874</span><br>
+            </div>
+            <div class="part">
+                <p>Soal 6 : apa perbedaan java script dan HTML?</p>
+                <span><input type="radio" name="soal6" value="a">a. java script merupakan otak dari sebuah web dan html merupakan struktur dari sebuah web</span><br>
+                <span><input type="radio" name="soal6" value="b">b. java script merupakan struktur dari sebuah web dan html merupakan otak dari sebuah web</span><br>
+                <span><input type="radio" name="soal6" value="c">c. java script merupakan design dari sebuah web dan html tidak digunakan dalam sebuah web</span><br>
+                <span><input type="radio" name="soal6" value="d">d. java script tidak digunakan dalam sebuah web dan html merupakan design dari sebuah web</span><br>
+            </div>
+            <div class="part">
+                <p>Soal 7 : apa fungsi yang digunakan untuk memanggil nama dari html ?</p>
+                <span><input type="radio" name="soal7" value="a">a. document.getElementById</span><br>
+                <span><input type="radio" name="soal7" value="b">b. document.getElementByClass</span><br>
+                <span><input type="radio" name="soal7" value="c">c. document.getElementByName</span><br>
+                <span><input type="radio" name="soal7" value="d">d. document.getElementByNameTag</span><br>
+            </div>
+            <div class="part">
+                <p>Soal 8 : let x = "2+1" console.log('x+x')</p>
+                <span><input type="radio" name="soal8" value="a">a. 2+1+2+1</span><br>
+                <span><input type="radio" name="soal8" value="b">b. 6</span><br>
+                <span><input type="radio" name="soal8" value="c">c. x+x</span><br>
+                <span><input type="radio" name="soal8" value="d">d. salah semua</span><br>
+            </div>
+            <div class="part">
+                <p>Soal 9 : di bawah ini mana penulisan code paling benar untuk java script</p>
+                <span><input type="radio" name="soal9" value="a">a. function....(){.......}</span><br>
+                <span><input type="radio" name="soal9" value="b">b. if(){else if {......}}</span><br>
+                <span><input type="radio" name="soal9" value="c">c. Document.queryselectorall</span><br>
+                <span><input type="radio" name="soal9" value="d">d. variable x</span><br>
+            </div>
+            <div class="part">
+                <p>Soal 10 : let x = 1 console.log('x')</p>
+                <span><input type="radio" name="soal10" value="a">a. 1</span><br>
+                <span><input type="radio" name="soal10" value="b">b. x</span><br>
+                <span><input type="radio" name="soal10" value="c">c. x1</span><br>
+                <span><input type="radio" name="soal10" value="d">d. 1x</span><br>
+            </div>
+        </div>
+        <div class="second">
+            <div class="abc">
+                <h4>Nilai Anda</h4>
+                <p class="score"><span id="hasil"></span></p>
+                <button onclick="cekJawaban()">HASIL</button>
+            </div>
+        </div>
+    </div>
+    <script>
+        const semuaRadio = document.querySelectorAll('input[type="radio"]');
+            semuaRadio.forEach(radio => {
+            radio.addEventListener('change', function() {
+                const namaSoal = this.name;
+                const radiosSatuSoal = document.querySelectorAll(`input[name="${namaSoal}"]`);
+
+                radiosSatuSoal.forEach(r => {
+                    r.disabled = true;
+                    r.parentElement.classList.add("terkunci");
+                });
+            });
+        });
+        function cekJawaban(){
+            let skor = 0;
+            
+            const kunci = {
+                soal1 : 'b',
+                soal2 : 'a',
+                soal3 : 'b',
+                soal4 : 'd',
+                soal5 : 'c',
+                soal6 : 'a',
+                soal7 : 'c',
+                soal8 : 'c',
+                soal9 : 'a',
+                soal10 : 'b'
+            };
+
+            for(let nomor in kunci){
+                let jawaban = document.querySelector(`input[name="${nomor}"]:checked`);
+                if(jawaban && jawaban.value === kunci[nomor]){
+                    skor += 10;
+                }
+            }
+            document.getElementById('hasil').innerHTML = skor;
+        }
+    </script>
+</body>
+</html>

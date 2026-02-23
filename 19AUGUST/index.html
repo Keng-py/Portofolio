@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>19 Agustus 2025</title>
+    <style>
+         *{
+            font-family: 'Times New Roman', Times, serif;
+            margin: 20px;
+        }
+        
+        body {
+            display: flex;
+            margin: 10px;
+            align-items: center;
+            justify-content: center;
+            align-items: center;
+            background-color: blueviolet;
+        }
+
+        .container {
+            justify-content: center;
+            align-items: center;
+            width: 50%;
+            /* margin-top: 30px;
+            margin-left: 300px; */
+            border-radius: 10px;
+            height: 480px;
+            background: linear-gradient(360deg,red,violet);
+            border: 2px solid #0ff;
+            border-radius: 10px;
+            animation: border-glow 2s infinite;
+        }
+        
+        input {
+            color: aliceblue;
+            border-radius: 2px;
+            border: none;
+            border: 2px solid blueviolet;
+            padding: 10px;
+            margin-left: 35%;
+            background-color: rgb(131, 21, 21);
+            cursor: pointer;
+        }
+
+        @keyframes pulse-glow {
+            0%, 100% {
+                text-shadow:
+                0 0 5px #0ff,
+                0 0 10px #0ff,
+                0 0 20px #0ff,
+                0 0 40px #0ff;
+            }
+            50% {
+                text-shadow:
+                0 0 2px #0ff,
+                0 0 4px #0ff,
+                0 0 10px #0ff,
+                0 0 20px #0ff;
+            }
+        }
+
+        p {
+            font-size: 14pt;
+        }
+
+        h1{
+            margin-left: 32%;
+            border-radius: 10px;
+            animation: pulse-glow 2s infinite;
+        }
+
+        button {
+            padding: 15px;
+            padding-right: 50px;
+            padding-left: 50px;
+            border-radius: 10px;
+            background-color: rgba(243, 235, 235, 0);
+            color: aqua;
+            border: none;
+            margin-left: 38%;
+            border: 3px solid cyan;
+            cursor: pointer;
+            transition: 0.3s all ease;
+        }
+
+        @keyframes border-glow {
+            0%, 100% {
+                box-shadow: 0 0 5px #0ff, 0 0 10px #0ff, 0 0 20px #0ff;
+            }
+            50% {
+                box-shadow: 0 0 2px #0ff, 0 0 4px #0ff, 0 0 10px #0ff;
+            }
+        }
+
+        button:hover {
+            background-color: rgb(255, 128, 0);
+        }
+
+        p{
+            margin-left: 4%;
+        }
+        
+        span{
+            padding-top: 20px;
+            font-size: 25pt;
+        }
+
+        p{
+            display: grid;
+            text-align: center;
+        }
+
+        p{
+            font-size: 13pt;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Masukan angka</h1>
+        <input type="number" id="angka"><br><br>
+        <button id="tebak" onclick="tebak()">TEBAK</button><br>
+        <p>TEBAKAN ANDA : <br><span id="hasil"></span></p>
+    </div>
+    <script>
+        var lives=3;
+        let komputer = Math.floor(Math.random()*10)+1;
+        function tebak(){
+            let angka = parseFloat(document.getElementById('angka').value);
+            lives -=1
+            if (lives === 0 || lives < 0) {
+                document.getElementById('hasil').innerHTML = `Anda telah salah 3x tombol telah di nonaktfikan`
+                document.getElementById('tebak').disabled = true;
+            }
+            else if(komputer === angka){
+                document.getElementById('hasil').innerHTML = `kamu berhasil menebak angkanya : ${komputer}`
+                document.getElementById('tebak').disabled = true;
+            }
+            else if(komputer < angka){
+                document.getElementById('hasil').innerHTML = `angka terlalu besar`
+            }
+            else{
+                document.getElementById('hasil').innerHTML = `angka terlalu kecil`
+            }
+        }
+    </script>
+</body>
+</html>

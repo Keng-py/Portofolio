@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scroll Animasi</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+
+        body{
+            background: linear-gradient(360deg,darkblue,rgb(0, 149, 255));
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin: 0;
+            overflow-x: hidden;
+            overflow-y: scroll;
+            scrollbar-color: white blue;
+        }
+
+        @keyframes pulse-glow {
+            0%, 100% {
+                text-shadow:
+                    0 0 10px #0ff,
+                    0 0 15px #0ff,
+                    0 0 25px #0ff,
+                    0 0 40px #0ff;
+            }
+            50% {
+                text-shadow:
+                    0 0 7px #0ff,
+                    0 0 9px #0ff,
+                    0 0 15px #0ff,
+                    0 0 25px #0ff;
+            }
+        }
+
+        @keyframes border-glow {
+            0%, 100% {
+                box-shadow: 0 0 10px rgb(2, 250, 209), 0 0 20px rgb(2, 250, 209), 0 0 30px rgb(2, 250, 209);
+            }
+            50% {
+                box-shadow: 0 0 10px rgb(4, 4, 217), 0 0 20px rgb(4, 4, 217), 0 0 30px rgb(4, 4, 217);
+            }
+        }
+
+        h1{
+            margin: 10px;
+            animation: 2s infinite pulse-glow;
+            color: rgb(8, 70, 217);
+        }
+
+        .box{
+            background: linear-gradient(360deg,lightblue,aqua);
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 30%;
+            height: 30vh;
+            box-shadow: 2px 4px 5px rgb(123,120,120);
+            border-radius: 10px;
+            transform: translateX(400%);
+            transition: transform 0.4s;
+            margin-bottom: 2%;
+            animation: border-glow 2s infinite,pulse-glow 2s infinite;
+            transition: 0.4s ease-out;
+        }
+
+        .box:nth-of-type(even){
+            transform: translateX(-400%);
+        }
+        
+        .box.show{
+            transform: translateX(0);
+        }
+
+        .box h2{
+            font-size: 40pt;
+        }
+
+        .box:hover{
+            scale: 1.1;
+        }
+
+        @media(max-width:667px){
+            body{
+                flex-wrap: wrap;
+                display: flex;
+                justify-content: start;
+                align-items: center;
+                height: 630vh;
+                margin-left: 2%;
+            }
+
+            .box{
+                width: 90%;
+                margin-bottom: 5%;
+                height: 30vh;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Scroll untuk melihat animasi</h1>
+    <div class="box">
+        <h2>Hello👋</h2>
+    </div>
+    <div class="box">
+        <h2>My</h2>
+    </div>
+    <div class="box">
+        <h2>Name</h2>
+    </div>
+    <div class="box">
+        <h2>Is</h2>
+    </div>
+    <div class="box">
+        <h2>Kenneth</h2>
+    </div>
+    <div class="box">
+        <h2>I'm</h2>
+    </div>
+    <div class="box">
+        <h2>From</h2>
+    </div>
+    <div class="box">
+        <h2>IGS</h2>
+    </div>
+    <div class="box">
+        <h2>I'm</h2>
+    </div>
+    <div class="box">
+        <h2>Now</h2>
+    </div>
+    <div class="box">
+        <h2>Learning</h2>
+    </div>
+    <div class="box">
+        <h2>As</h2>
+    </div>
+    <div class="box">
+        <h2>8A</h2>
+    </div>
+    <div class="box">
+        <h2>Student</h2>
+    </div>
+    <div class="box">
+        <h2>Class</h2>
+    </div>
+ 
+    <script>
+        const boxes = document.querySelectorAll('.box');
+
+        window.addEventListener('scroll',checkBoxes)
+
+        checkBoxes()
+
+        function checkBoxes(){
+            const triggerButton = window.innerHeight / 5 * 4
+
+            boxes.forEach(box => {
+                const boxTop = box.getBoundingClientRect().top
+                
+                if(boxTop < triggerButton){
+                    box.classList.add('show')
+                }
+                else{
+                    box.classList.remove('show')
+                }
+            })
+        }
+    </script>
+</body>
+</html>

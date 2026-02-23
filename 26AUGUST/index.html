@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spotify By Kenneth Anthony.Ng 8A</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #121212;
+            color: white;
+        }
+        .container {
+            display: flex;
+            height: 100vh;
+        }
+        .menu {
+            animation: border-glow 2s infinite;
+            width: 300px;
+            background: linear-gradient(to bottom, #191414, #9cdbb2);
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        .menu a {
+            color: white;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 5px;
+        }
+        .menu h3 {
+            margin-top: 20px;
+        }
+        .a {
+            overflow: hidden;
+            padding: 20px;
+            width: 65%;
+            box-sizing: border-box;
+        }
+        hr {
+            border: none;
+            height: 2px;
+            background-color: white;
+            margin: 15px 0;
+        }
+
+        @keyframes border-glow {
+            0%, 100% {
+                box-shadow: 0 0 10px rgb(16, 241, 144), 0 0 20px rgb(16, 241, 144), 0 0 30px rgb(16, 241, 144);
+            }
+            50% {
+                box-shadow: 0 0 5px rgb(16, 241, 144), 0 0 8px rgb(16, 241, 144), 0 0 20px rgb(16, 241, 144);
+            }
+        }
+
+        @keyframes secondary-glow {
+            0%, 100% {
+                box-shadow: 0 0 10px rgba(17, 75, 201, 0.963), 0 0 20px rgba(17, 75, 201, 0.963), 0 0 30px rgba(17, 75, 201, 0.963);
+            }
+            50% {
+                box-shadow: 0 0 5px rgb(16, 173, 241), 0 0 8px rgb(16, 173, 241), 0 0 20px rgb(16, 173, 241);
+            }
+        }
+
+        .table-container {
+            background: linear-gradient(to bottom, #191414, #1db954);
+            max-height: 240px;
+            scrollbar-color: #1db954 #191414;
+            overflow-y: auto;
+            margin-top: 10px;
+            border: 1px solid #333;
+        }
+        table {
+            align-items: center;
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            align-items: center;
+            border: 1px solid #333;
+            padding: 10px;
+        }
+
+        tr{
+            text-align: center;
+        }
+        
+        tr:hover {
+            background-color: #333;
+            cursor: pointer;
+        }
+        th {
+            background-color: #121212;
+        }
+        .lirik {
+            animation: border-glow 2s infinite;
+            width: 300px;
+            background-color: #282828;
+            padding: 20px;
+            box-sizing: border-box;
+            overflow-y: scroll;
+            scrollbar-color: #1db954 #282828;
+        }
+        audio {
+            width: 100%;
+            margin-top: 20px;
+        }
+        button {
+            margin-top: 10px;
+            margin-left: 1%;
+            padding: 12px 42px;
+            background-color: #1DB954;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            color: black;
+            transition: all 0.3s ease;
+        }
+        button:hover {
+            scale: 1.1;
+            animation: border-glow 2s infinite;
+        }
+        .hbr a {
+            font-size: 15px;
+            text-decoration: none;
+            color: white;
+        }
+        .hbr {
+            margin-top: 0;
+            padding-top: 5px;
+        }
+
+        h3 {
+            font-size: 13pt;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .image {
+            width: 100%;
+            height: 70px;
+            background-color: #f0f00c;
+            border-radius: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 15%;
+            color: black;
+        }
+        tr:hover{
+            animation: secondary-glow 2s infinite,text-glow 2s infinite;
+        }
+
+        @keyframes pulse-glow {
+            0%, 100% {
+                box-shadow:
+                    0 0 5px rgb(0, 0, 255),
+                    0 0 10px rgb(0, 0, 255),
+                    0 0 20px rgb(0, 0, 255),
+                    0 0 40px rgb(0, 0, 255);
+            }
+            80% {
+                box-shadow:
+                    0 0 2px rgb(174, 0, 255),
+                    0 0 4px rgb(174, 0, 255),
+                    0 0 10px rgb(174, 0, 255),
+                    0 0 20px rgb(174, 0, 255);
+            }
+        }
+
+        @keyframes text-glow {
+            0%, 100% {
+                text-shadow:
+                    0 0 5px #0ff,
+                    0 0 10px #0ff,
+                    0 0 20px #0ff,
+                    0 0 40px #0ff;
+            }
+            50% {
+                text-shadow:
+                    0 0 2px #0ff,
+                    0 0 4px #0ff,
+                    0 0 10px #0ff,
+                    0 0 20px #0ff;
+            }
+        }
+
+        .image2 {
+            margin-left: 38%;
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(360deg, rgb(135, 135, 220), rgb(136, 94, 155));
+            border-radius: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: black;
+            animation: pulse-glow 2s infinite;
+        }
+        ul {
+            padding-left: 10px;
+            margin: 0;
+        }
+        ul li {
+            font-size: 9pt;
+            margin-bottom: 3px;
+            cursor: pointer;
+            color: rgb(10, 175, 251);
+        }
+
+        .upper {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .upper input[type="text"] {
+            padding: 10px 30px;
+            border: none;
+            border-radius: 5px;
+            font-size: 14px;
+            transition: all 0.3 ease;
+        }
+
+        input:hover{
+            animation: secondary-glow 2s infinite;
+        }
+
+        .in {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(360deg, rgb(135, 135, 220), rgb(136, 94, 155));
+            border-radius: 100%;
+            margin-left: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            animation: pulse-glow 2s infinite;
+        }
+
+        .name {
+            font-size: 12pt;
+            color: white;
+            margin-left: 10px;
+        }
+        .inner{
+            height: 23px;
+            padding: 40px;
+            width: 22%;
+            animation: secondary-glow 2s infinite;
+            border-radius: 5px;
+            background-image: url(best.jpg);
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+        .down {
+            height: 10%;
+            display: flex;
+        }
+        .part {
+            margin-left: 20px
+        }
+
+        h5 {
+            font-size: 10pt;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            margin-bottom: 5px;
+            color: white;
+        }
+        h4 {
+            font-size: 16pt;
+            font-family: Arial, sans-serif;
+            margin: 0px;
+            color: white;
+        }
+        p {
+            font-size: 10pt;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            margin-bottom: 15px;
+            color: white;
+        }
+        .button a {
+            border-radius: 4px;
+            margin-top: 10px;
+            padding: 5%;
+            text-decoration: none;
+            color: black;
+            background-color: #1DB954;
+            transition: all 0.3s ease;
+        }
+
+        .button a:hover {
+            animation: border-glow 2s infinite;
+        }
+
+        @media (max-width: 667px) {
+            .container {
+                display: grid;
+                grid-template-columns: 1fr;
+                height: auto;
+                grid-template-rows: auto auto auto;
+            }
+
+            .menu {
+                width: 100%;
+                height: auto;
+                max-height: 50vh;
+                overflow-y: auto;
+                order: 1;
+                grid-column: 1;
+                grid-row: 1;
+            }
+
+            .a {
+                width: 100%;
+                height: auto;
+                order: 2;
+                grid-column: 1;
+                grid-row: 2;
+                padding: 15px;
+            }
+
+            .lirik {
+                width: 100%;
+                height: auto;
+                max-height: 40vh;
+                order: 3;
+                grid-column: 1;
+                grid-row: 3;
+                margin-top: 10px;
+            }
+
+            .down {
+                flex-direction: column;
+                height: auto;
+            }
+
+            .inner {
+                width: 100%;
+                height: 100px;
+                margin-bottom: 15px;
+            }
+
+            .part {
+                width: 100%;
+                margin-left: 0;
+            }
+
+            .table-container {
+                max-height: 30vh;
+            }
+
+            table {
+                font-size: 12px;
+            }
+
+            th, td {
+                padding: 8px 5px;
+            }
+
+            button {
+                padding: 10px 20px;
+                font-size: 12px;
+                margin-left: 1%;
+                margin-right: 1%;
+            }
+
+            .upper {
+                flex-direction: column;
+            }
+
+            .upper input {
+                width: 100%;
+                margin-bottom: 10px;
+            }
+
+            .in {
+                margin-left: 0;
+                margin-bottom: 10px;
+            }
+
+            .menu a {
+                font-size: 13px;
+            }
+
+            .menu h3 {
+                font-size: 12px;
+            }
+
+            h4 {
+                font-size: 14px;
+            }
+
+            h5 {
+                font-size: 9px;
+            }
+
+            p {
+                font-size: 9px;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="menu">
+        <div class="hbr">
+            <a href="#">🏠Home</a>
+            <a href="#">🔍Browse</a>
+            <a href="#">📻Radio</a>
+        </div>
+        <hr>
+        <div class="p">
+            <h3>Playlist</h3>
+            <ul>
+                <li>Back to friends</li>
+                <li>Let Down</li>
+                <li>Scientist</li>
+                <li>The Days</li>
+                <li>Notion</li>
+                <li>Daylight</li>
+                <li>Her</li>
+                <li>Aria Math-Slowed</li>
+                <li>Shape of You</li>
+            </ul>
+            <div class="np">
+                <div class="image">
+                    <h3>New Playlist +</h3>
+                </div>
+                <h3>Welcome Kenneth</h3>
+                <div class="image2"></div>
+            </div>
+        </div>
+        <hr>
+    </div>
+
+    <div class="a">
+        <div class="top">
+            <div class="upper">
+                <input type="text" placeholder="Search Music🔎">
+                <div class="in"></div>
+                <div class="name">Kenneth</div>
+            </div>
+            <div class="down">
+                <div class="inner">
+
+                </div>
+                <div class="part">
+                    <h5>Playlist</h5>
+                    <h4 id="playlist">10 CHOSEN SONG</h4>
+                    <p id="made">CREATED BY SONG ARTISTS</p>
+                    <div class="button">
+                        <a href="#">Download</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <div class="table-container">
+            <table>
+                <tr>
+                    <th>No</th>
+                    <th>Title</th>
+                    <th>Artist</th>
+                    <th>Album</th>
+                    <th>Time</th>
+                </tr>
+                <tr onclick="pilihlagu(0)">
+                    <td>1</td>
+                    <td>Back to friends</td>
+                    <td>Sombr</td>
+                    <td>Back to friends</td>
+                    <td>3:19</td>
+                </tr>
+                <tr onclick="pilihlagu(1)">
+                    <td>2</td>
+                    <td>Let Down</td>
+                    <td>Radiohead</td>
+                    <td>Letdown</td>
+                    <td>4:59</td>
+                </tr>
+                <tr onclick="pilihlagu(2)">
+                    <td>3</td>
+                    <td>Sailor Song</td>
+                    <td>Gigi Perez</td>
+                    <td>Sailor Song</td>
+                    <td>3:31</td>
+                </tr>
+                <tr onclick="pilihlagu(3)">
+                    <td>4</td>
+                    <td>Scientist</td>
+                    <td>Cold play</td>
+                    <td>Scientist</td>
+                    <td>4:26</td>
+                </tr>
+                <tr onclick="pilihlagu(4)">
+                    <td>5</td>
+                    <td>The Days</td>
+                    <td>Chrystal ৹ Notion</td>
+                    <td>The Days</td>
+                    <td>3:53</td>
+                </tr>
+                <tr onclick="pilihlagu(5)">
+                    <td>6</td>
+                    <td>Notion</td>
+                    <td>The Rare Occasions</td>
+                    <td>Notion</td>
+                    <td>3:15</td>
+                </tr>
+                <tr onclick="pilihlagu(6)">
+                    <td>7</td>
+                    <td>Daylight</td>
+                    <td>David Kushner</td>
+                    <td>Daylight</td>
+                    <td>3:49</td>
+                </tr>
+                <tr onclick="pilihlagu(7)">
+                    <td>8</td>
+                    <td>Her</td>
+                    <td>JVKE</td>
+                    <td>Her</td>
+                    <td>2:51</td>
+                </tr>
+                <tr onclick="pilihlagu(8)">
+                    <td>9</td>
+                    <td>No.1 Party Anthem</td>
+                    <td>Artic Monkeys</td>
+                    <td>No.1 Party Anthem</td>
+                    <td>4:03</td>
+                </tr>
+                <tr onclick="pilihlagu(9)">
+                    <td>10</td>
+                    <td>Shape of You</td>
+                    <td>Ed Sheeran</td>
+                    <td>Shape of You</td>
+                    <td>4:24</td>
+                </tr>
+            </table>
+        </div>
+        <audio src="sombr-back-to-friends.mp3" id="audioPlayer" controls></audio>
+        <button onclick="prevSong()">Prev</button>
+        <button onclick="pauseSong()">Play/Pause</button>
+        <button onclick="stopSong()">Stop</button>
+        <button onclick="nextSong()">Next</button>
+        <button onclick="ulangi()">Repeat: Off</button>
+    </div>
+
+    <div class="lirik" id="lirik">
+        Touch my body tenderCause the feeling makes me weak Kicking off the covers I see the ceiling while youre looking down at me How can we go back to being friends When we just shared a bed How can you look at me and pretend Im someone youve never met It was last December You were layin on my chest I still remember I was scared to take a breath didnt want you to move your head How can we go back to being friends When we just shared a bed Yeah How can you look at me and pretend Im someone youve never met The devil in your eyesvWont deny the lies Youve sold Im holding on too tight While you let go this is casual How can we go back to being friends When we just shared a bed YeahvHow can you look at me and pretend Im someone youve never met How can we go back to being friendsvWhen we just shared a bed Yeah How can you look at me and pretend Im someone youve never met Im someone youve never met Oh yeah
+    </div>
+</div>
+
+<script>
+    const audioPlayer = document.getElementById('audioPlayer');
+    const lirik = document.getElementById('lirik');
+    const playlist = document.getElementById('playlist');
+    const made = document.getElementById('made');
+        const btnUlangi = document.querySelector("button[onclick='ulangi()']");
+        let isRepeat = false;
+
+        const lagu = [
+            {
+                title: 'Back to friends',
+                artist: 'Sombr',
+                src: 'sombr-back-to-friends.mp3',lirik:'Touch my body tenderCause the feeling makes me weak Kicking off the covers I see the ceiling while youre looking down at me How can we go back to being friends When we just shared a bed How can you look at me and pretend Im someone youve never met It was last December You were layin on my chest I still remember I was scared to take a breath didnt want you to move your head How can we go back to being friends When we just shared a bed Yeah How can you look at me and pretend Im someone youve never met The devil in your eyesvWont deny the lies Youve sold Im holding on too tight While you let go this is casual How can we go back to being friends When we just shared a bed YeahvHow can you look at me and pretend Im someone youve never met How can we go back to being friendsvWhen we just shared a bed Yeah How can you look at me and pretend Im someone youve never met Im someone youve never met Oh yeah'
+            },
+            {
+                title: 'Let Down',
+                artist: 'Radiohead',
+                src: 'radiohead-let-down.mp3',lirik:'Watch me as I break down in the safe house that I built myself I am a letdown In the old town I got nothing left to give so I am heading out back now of the old house  In a new town  where I dont exist  Cause I am a letdown In my own house I have got no more life to live I need a lesson They got a problem with the way i have a message I wanna learn to feel the pain I  made a mess here And their world keeps moving on And I am so I let em chase me Until the fall under my feet and then replace me Another normal fever dream I let it make me And their word Keeps moving on And I am so Over this overrated Blood war This understated Cover This automated lover singing I am not coming Home now without my soul Alone now Inside this hell I know now What they have been saying Please dont stop me I am not coming homeI let em break me I let em come into my home and let it shake I let it burn the fear of love and let it hate me But that fear is moving on and I am so Over this overrated Blood war This understated Cover This automated lover singing I am not going Home now without my soul Alone now Inside this hell I know now What they have been saying Please dont stop me I am not going homeBreak down on the way down honey Break up I am a lost boy take it or leave I am not what my mother wanted Heels tied down and I am not going Hands up on the way down honey Break up I am a lost boy take it or leave I am not what my mother wanted Heels tied down and I am not going Home now without my soul Alone now Inside this hell I know now What they have been saying Please dont stop me I am not coming homeBreak down on the way down honey Break up I am a lost boy take it or leave I am not what my mother wanted Heels tied down and I am not going Home now without my soul Alone now Inside this hell I know now What they have been saying Please dont stop me I am not going Over this overrated Blood war This understated Cover This automated lover singing I am not going Home'
+            },
+            {
+                title: 'Sailor Song',
+                artist: 'Gigi Perez',
+                src: 'gigi-perez-sailor-song.mp3',lirik:'I saw her in the rightest way Looking like Anne Hathaway Laughing while she hit her pen and coughed and coughed And then she came up to my knees Begging Baby would you please Do the things you said youd do to me to me Oh wont you kiss me on the mouth and love me like a sailor And when you get a taste can you tell me whats my flavor I dont believe in God but I believe that youre my savior My mom says that shes worried but Im covered in this favor And when were getting dirty I forget all that is wrong I sleep so I can see you cause I hate to wait so long I sleep so I can see you and I hate to wait so long She took my fingers to her mouth The kind of thing that makes you proud That nothing else had ever worked out worked out And lately I tried other things But nothing can capture the sting Of the venom shes gonna spit out right now Oh wont you kiss me on the mouth and love me like a sailor And when you get a taste can you tell me whats my flavor I dont believe in God but I believe that youre my savior I know that youve been worried but youre dripping in my favor And when were getting dirty'
+            },
+            {
+                title: 'Scientist',
+                artist: 'Coldplay',
+                src: 'Coldplay - The Scientist (Official 4K Video).mp3',lirik:'Come up to meet you, tell you Im sorryYou dont know how lovely you are I had to find you, tell you I need you Tell you I set you apart Tell me your secrets and ask me your questions Oh lets go back to the start Running in circles, coming up tails Heads on a science apart Nobody said it was easy Its such a shame for us to part Nobody said it was easy No one ever said it would be this hard Oh take me back to the start I was just guessing at numbers and figures Pulling the puzzles apart Questions of science science and progress Do not speak as loud as my heart But tell me you love me come back and haunt me Oh and I rush to the start Running in circles chasing our tails Coming back as we are Nobody said it was easy Oh its such a shame for us to part Nobody said it was easy No one ever said it would be so hard Im going back to the start Oh ooh ooh ooh ooh ooh Ah ooh ooh ooh ooh ooh Oh ooh ooh ooh ooh ooh Oh ooh ooh ooh ooh ooh'
+            },
+            {
+                title: 'The Days',
+                artist: 'Chrystal ৹ Notion',
+                src: 'CHRYSTAL - The Days (Notion Remix).mp3',lirik:'Do you think about the days when we sat down smoking wine and drinking haze or was it the other way was it the other way swing round come on chill with me I got your favourite show recorded on my TV but we dont have to watch that no Ill turn off the radio so wont you pick up then we can link up its not a hookup dont think about it too much too much you just need to pick up then we can link up dont think about it too much too much dont think about it too much too much dont think about it too much too much too much too much too much much much much do you think about the days when we sat down smoking wine and drinking haze or was it the other way was it the other way swing round come on chill with me I got your favourite show recorded on my TV but we dont have to watch that no Ill turn off the radio so wont you pick up then we can link up its not a hookup dont think about it too much too much you just need to pick up then we can link up dont think about it too much too much dont think about it too much too much dont think about it too much too much too much too much too much much much much do you think about the days when we sat down smoking wine and drinking haze or was it the other way was'
+            },
+            {
+                title: 'Notion',
+                artist: 'The Rare Occasions',
+                src: 'The Rare Occasions - Notion.mp3',lirik:'Sure its a calming notion perpetual in motion but I dont need the comfort of any lies for I have seen the ending and there is no ascending rise back when I was younger was told by other youngsters that my unwell dreams were wonders of the mind questioning if illusions can you see it clearer love is never stronger than the mind now maybe do you hear me have I lost my mind every time you blink do you know what you left behind now maybe do you hear me have I lost my mind every time you blink do you know what you left behind standing in the pearly gates there is no mandate all my thoughts they blend cause I was taught this fate will burden me despite the clarity now maybe do you hear me have I lost my mind every time you blink do you know what you left behind now maybe do you hear me have I lost my mind every time you blink do you know what you left behind'
+            },
+            {
+                title: 'Daylight',
+                artist: 'David Kushner',
+                src: 'David Kushner - Daylight (Official Music Video).mp3',lirik:'Telling myself I wont go there Oh but I know that I wont care Tryna wash away all the blood Ive spilt This lust is a burden that we both share Two sinners cant atone from a lone prayer Souls tied intertwined by pride and guilt Ooh Theres darkness in the distance From the way that Ive been livin Ooh But I know I cant resist it Oh I love it and I hate it at the same time You and I drink the poison from the same vine Oh I love it and I hate it at the same time Hidin all of our sins from the daylight From the daylight runnin from the daylight From the daylight runnin from the daylight Oh I love it and I hate it at the same time Tellin myself its the last time Can you spare any mercy that you might find If Im down on my knees again Deep down way down Lord I try Try to follow your light but its nighttime Please dont leave me in the end Ooh Theres darkness in the distance Im beggin for forgiveness Ooh But I know I might resist it Oh Oh I love it and I hate it at the same time You and I drink the poison from the same vine Oh I love it and I hate it at the same time Hidin all of our sins from the daylight From the daylight runnin from the daylight From the daylight runnin from the daylight Oh I love it and I hate it at the same time'
+            },
+            {
+                title: 'Her',
+                artist: 'JVKE',
+                src: 'JVKE - her (official lyric video).mp3',lirik:'Hold me close Look me dead in my eyes Dead in my Til the day that I die Dead inside I just wanna feel alive With you Im alive With you Im alive Fell in love but it left me lonely Tried to trust but it burned me slowly I didnt know what I was looking for Til I found her I found her Without her Im a mess Im a mess There was nothing bout that love that made sense I was stressed Til I found her Oh oh Ive run for many miles trying to find love From a woman that could love me and never leave my side And Ive run for many miles trying to get away from The things Im afraid of and everything inside You say that were already done Done But what does that even mean You tell me to open my eyes Thank God it was just a dream I guess thats how you know that its love When youre scared to death theyll leave Just say that youll never leave never leave Baby hold me close Look me dead in my eyes Dead in my Til the day that I die Dead inside I just wanna feel alive With you Im alive With you Im a uh Fell in love but it left me lonely Tried to trust but it burned me slowly I didnt know what I was looking for Til I found her I found her Without her Im a mess Im a mess There was nothing bout that love that made sense I was stressed Til I found her Oh oh Til we found her Im a mess Im a mess There was nothing bout that love that made sense I was stressed Til I found her Oh oh Til I found her Ooh ooh ooh'
+            },
+            {
+                title: 'No.1 Party Anthem',
+                artist: 'Arctic Monkeys',
+                src: 'Arctic Monkeys - No. 1 Party Anthem (Lyrics).mp3',lirik:'So youre on the prowl wondering whether she left already or not Leather jacket collar popped like antenna never knowing when to stop Sunglasses indoors par for the course lights in the floors and sweat on the walls Cages and poles Call off the search for your soul or put it on hold again Shes having a sly indoor smoke She calls the folks who run this her oldest friends Sipping her drink and laughing at imaginary jokes As all the signals are sent Her eyes invite you to approach And it seems as though those lumps in your throat That you just swallowed have got you going Come on come on come on Come on come on come on Number one party anthem Shes a certified mind blower knowing full well that I dont I may suggest theres somewhere from which I might know her Just to get the ball to roll Drunken monologues confused because Its not like Im falling in love I just want you to do me no good And you look like you could Come on come on come on Come on come on come on Number one party anthem Come on come on come on Before the moments gone Number one party anthem The look of love The rush of blood The shes with me The Gallic shrug The shutterbugs The camera plus The black and white and the colour dodge The good time girls The cubicles The house of fun The number one party anthem Come on come on come on Come on come on come on Come on come on come on Come on come on come on Before the moments gone Number one party anthem Number one party anthem Number one party anthem'
+            },
+            {
+                title: 'Shape of You',
+                artist: 'Ed Sheeran',
+                src: 'Ed Sheeran - Shape of You (Official Music Video).mp3',lirik:'The club isnt the best place to find a lover So the bar is where I go Me and my friends at the table doing shots Drinking fast and then we talk slow Come over and start up a conversation with just me And trust me Ill give it a chance now Take my hand stop put Van the Man on the jukebox And then we start to dance and now Im singing like Girl you know I want your love Your love was handmade for somebody like me Come on now follow my lead I may be crazy dont mind me Say boy lets not talk too much Grab on my waist and put that body on me Come on now follow my lead Come come on now follow my lead Im in love with the shape of you We push and pull like a magnet do Although my heart is falling too Im in love with your body And last night you were in my room And now my bedsheets smell like you Every day discovering something brand new Im in love with your body Oh I oh I oh I oh I Im in love with your body Oh I oh I oh I oh I Im in love with your body Oh I oh I oh I oh I Im in love with your body Every day discovering something brand new Im in love with the shape of you One week in we let the story begin Were going out on our first date You and me are thrifty so go all you can eat Fill up your bag and I fill up a plate We talk for hours and hours about the sweet and the sour And how your family is doing okay And leave and get in a taxi then kiss in the backseat Tell the driver make the radio play and Im singing like Girl you know I want your love Your love was handmade for somebody like me Come on now follow my lead I may be crazy dont mind me Say boy lets not talk too much Grab on my waist and put that body on me Come on now follow my lead Come come on now follow my lead Im in love with the shape of you We push and pull like a magnet do Although my heart is falling too Im in love with your body And last night you were in my room And now my bedsheets smell like you Every day discovering something brand new Im in love with your body Oh I oh I oh I oh I Im in love with your body Oh I oh I oh I oh I Im in love with your body Oh I oh I oh I oh I Im in love with your body Every day discovering something brand new Im in love with the shape of you Come on be my baby come on Come on be my baby come on Come on be my baby come on Come on be my baby come on Come on be my baby come on Come on be my baby come on Come on be my baby come on Come on be my baby come on Im in love with the shape of you We push and pull like a magnet do Although my heart is falling too Im in love with your body And last night you were in my room And now my bedsheets smell like you Every day discovering something brand new Im in love with your body Come on be my baby come on Come on Im in love with your body be my baby come on Come on be my baby come on Come on Im in love with your body be my baby come on Come on be my baby come on Come on Im in love with your body be my baby come on Every day discovering something brand new Im in love with the shape of you'
+            }
+        ]
+
+        let laguindex = 0;
+
+        function loadSong(index){
+            laguindex = index;
+            audioPlayer.pause();
+            audioPlayer.src = lagu[index].src;
+            audioPlayer.load();
+            audioPlayer.play();
+            lirik.innerText = lagu[index].lirik;
+        }
+
+        function pauseSong(){
+            if(audioPlayer.paused){
+                audioPlayer.play();
+            }
+            else{
+                audioPlayer.pause();
+            }
+        }
+
+        function stopSong(){
+            audioPlayer.pause();
+            audioPlayer.currentTime = 0;
+        }
+
+        function nextSong(){
+            laguindex = (laguindex + 1) % lagu.length;
+            loadSong(laguindex);
+        }
+
+        function prevSong(){
+            laguindex = (laguindex - 1 + lagu.length) % lagu.length;
+            loadSong(laguindex);
+        }
+
+        function pilihlagu(index){
+            loadSong(index);
+        }
+
+        function ulangi(){
+            isRepeat = !isRepeat;
+            btnUlangi.innerText = isRepeat ? "Repeat: On" : "Repeat: Off";
+        }
+
+        audioPlayer.addEventListener('ended',function(){
+            if(isRepeat){
+                audioPlayer.currentTime = 0;
+                audioPlayer.play();
+        }
+            else{
+                nextSong();
+            }
+        })
+
+        function loadSong(index){
+            laguindex = index;
+            audioPlayer.pause();
+            audioPlayer.src = lagu[index].src;
+            audioPlayer.load();
+            audioPlayer.play();
+            lirik.innerText = lagu[index].lirik;
+            if (lagu[index] && playlist && made) {
+                playlist.innerText = lagu[index].title || "undifined";
+                made.innerText = `CREATED BY ${(lagu[index].artist || "undifined").toUpperCase()}`;
+            }
+        }
+
+    </script>
+</body>
+</html>

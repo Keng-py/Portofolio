@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FOR LOOP</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: linear-gradient(135deg, #636ff8 0%, #06b197 100%);
+    }
+
+    .container {
+        background: rgba(255, 255, 255, 0.2);
+        backdrop-filter: blur(10px);
+        padding: 70px;
+        border-radius: 15px;
+        width: 100%;
+        max-width: 500px;
+        box-shadow: 0 8px 2px 0 rgba(0, 0, 0, 0.2);
+    }
+
+    h1 {
+        color: white;
+        text-align: center;
+        margin-bottom: 25px;
+        font-size: 1.8rem;
+    }
+
+    span {
+        display: block;
+        color: white;
+        margin: 15px 0 5px;
+        font-weight: 500;
+    }
+
+    input {
+        width: 100%;
+        padding: 12px 15px;
+        border: none;
+        border-radius: 8px;
+        background: rgba(255, 255, 255, 0.4);
+        font-size: 1rem;
+        margin: 5px 0 10px;
+        transition: all 0.3s ease;
+    }
+
+    input:focus {
+        outline: none;
+        box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.9);
+        background: rgb(0, 0, 0);
+        color: white;
+    }
+
+    button {
+        width: 100%;
+        padding: 12px;
+        border: none;
+        background: #4a00e0;
+        color: white;
+        font-size: 1rem;
+        font-weight: 600;
+        cursor: pointer;
+        margin-top: 10px;
+        border-radius: 8px;
+    }
+</style>
+<body>
+    <div class="container">
+        <h1>Program perkalian</h1>
+        <span>Masukan angka</span><br>
+        <input type="number" id="angka"><br><br>
+        <button onclick="hitung()">Hitung</button><br>
+        <p>hasil : <br><span id="hasil"></span></p>
+    </div>
+    <script>
+        function hitung(){
+            let angka = parseFloat(document.getElementById('angka').value);
+            let result = '';
+            for(let i = 1; i <= 10; i++){
+                result += `${i} x ${angka} = ${i*angka}<br>`
+            }
+            document.getElementById('hasil').innerHTML = result;
+        }
+        // let teman = ['azka','milano','wira','darel']
+        // for(let i = 0; i < teman.length; i++){
+        //     console.log(`teman ke-${i}`);
+        // }
+
+        // let teman = ['azka','milano','wira','darel']
+        // for(let i = 0; i < teman.length; i++){
+        //     console.log(`teman ke-${i+1},${teman[i]}`);
+        // }
+
+        // for(let i = 1; i <= 3; i++){
+        //     console.log('I see myself');
+        // }
+        // console.log('in the mirror')
+    </script>
+</body>
+</html>

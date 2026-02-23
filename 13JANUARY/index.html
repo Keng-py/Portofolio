@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Latihan For Loop</title>
+    <style>
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            padding: 40px;
+            background: linear-gradient(360deg,red,yellow);
+            background-repeat: no-repeat;
+            height: 84vh;
+            overflow: hidden;
+        }
+    
+        .bungkus{
+            width: 400px;
+            margin: auto;
+            text-align: center;
+            padding: 20px;
+            background: linear-gradient(360deg,blue,cyan);
+            border-radius: 8px;
+            font-family: Arial, sans-serif;
+            border: 2px solid black;
+            animation: second-glow 2s infinite;
+            padding-bottom: 20px;
+        }
+        input[type="number"]{
+            width: 80%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 2px solid #3a3737;
+            border-radius: 4px;
+            font-weight: bold;
+            transition: 1s all ease-in-out;
+        }
+
+        input:hover{
+            animation: border-glow 2s infinite;
+        }
+        button{
+            margin-top: 20px;
+            padding: 8px 16px;
+            border: none;
+            background-color: #28a745;
+            color: white;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: 1s all ease;
+        }
+        button:hover{
+            animation: border-glow 2s infinite;
+            scale: 1.1;
+        }
+        #output{
+            margin-top: 20px;
+            text-align: left;
+            gap: 5px;
+        }
+
+        #output{
+            animation: pulse-glow 2s infinite;
+            display: block;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .cover{
+            overflow-y: scroll;
+            max-height: 25vh;
+            display: grid;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .cover::-webkit-scrollbar{
+            display: none;
+        }
+
+        h3{
+            font-weight: bold;
+            color: white
+        }
+        @keyframes pulse-glow {
+            0%, 100% {
+                text-shadow:
+                    0 0 10px #0ff,
+                    0 0 15px #0ff,
+                    0 0 25px #0ff,
+                    0 0 40px #0ff;
+            }
+            50% {
+                text-shadow:
+                    0 0 7px #0ff,
+                    0 0 9px #0ff,
+                    0 0 15px #0ff,
+                    0 0 25px #0ff;
+            }
+        }
+
+        @keyframes border-glow {
+            0%, 100% {
+                box-shadow: 0 0 10px rgb(250, 2, 2), 0 0 20px rgb(250, 2, 2), 0 0 30px rgb(250, 2, 2);
+            }
+            50% {
+                box-shadow: 0 0 10px rgb(217, 213, 4), 0 0 20px rgb(217, 213, 4), 0 0 30px rgb(217, 213, 4);
+            }
+        }
+
+        @keyframes second-glow {
+            0%, 100% {
+                box-shadow: 0 0 10px rgb(2, 250, 209), 0 0 20px rgb(2, 250, 209), 0 0 30px rgb(2, 250, 209);
+            }
+            50% {
+                box-shadow: 0 0 10px rgb(4, 4, 217), 0 0 20px rgb(4, 4, 217), 0 0 30px rgb(4, 4, 217);
+            }
+        }
+
+        @media(max-width:667px){
+            body{
+                height: 89vh;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="bungkus">
+        <input type="number" name="" id="numberInput" placeholder="Masukan angka">
+        <button onclick="tampilkanAngka()">TAMPILKAN</button>
+
+        <h3>HASIL</h3>
+        <div class="cover">
+            <div id="output"></div>
+        </div>
+    </div>
+
+    <script>
+        function tampilkanAngka(){
+            let angka = document.getElementById("numberInput").value
+            let output = document.getElementById("output")
+
+            output.innerHTML = ""
+            
+            output.innerHTML += "<strong>Angka 1 sampai " + angka + ":</strong><br>"
+            for(let i = 1; i <= angka; i++){
+                output.innerHTML += i + " "
+            }
+
+            output.innerHTML += "<br><strong>Angka Genap:</strong><br>"
+            for(let i = 1; i <= angka; i++){
+                if(i % 2 === 0){
+                    output.innerHTML += i + " "
+                }
+            }
+
+            output.innerHTML += "<br><strong>Angka Ganjil:</strong><br>"
+            for(let i = 1; i <= angka; i++){
+                if(i % 2 === 1){
+                    output.innerHTML += i + " "
+                }
+            }
+
+            output.innerHTML += "<br><strong>Angka Kelipatan 3:</strong><br>"
+            for(let i = 1; i <= angka; i++){
+                if(i % 3 === 0){
+                    output.innerHTML += i + " "
+                }
+            }
+        }
+    </script>
+</body>
+</html>

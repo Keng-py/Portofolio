@@ -4,342 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Portfolio Hero</title>
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      font-family: Inter, system-ui, -apple-system, sans-serif;
-    }
-
-    body {
-      min-height: 100vh;
-      background: radial-gradient(circle at top, #3b0a57 0%, #120018 55%, #09000d 100%);
-      color: #fff;
-    }
-
-    header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 24px 64px;
-      position: fixed;
-      width: 100%;
-      top: 0;
-      z-index: 100;
-      backdrop-filter: border-box;
-    }
-
-    .logo {
-      font-weight: 600;
-      letter-spacing: 0.5px;
-    }
-
-    nav {
-      display: flex;
-      gap: 28px;
-      padding: 12px 28px;
-      border-radius: 999px;
-      background: rgba(255,255,255,0.08);
-      backdrop-filter: blur(10px);
-      font-size: 0.9rem;
-    }
-
-    nav a {
-      color: #ddd;
-      text-decoration: none;
-      opacity: 0.8;
-    }
-
-    nav a:hover {
-      opacity: 1;
-    }
-
-    .cta {
-      padding: 10px 22px;
-      border-radius: 999px;
-      border: 1px solid rgba(255,255,255,0.25);
-      background: transparent;
-      color: #fff;
-      cursor: pointer;
-    }
-
-    main {
-      min-height: calc(100vh - 120px);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding-top: 100px;
-    }
-
-    .hero {
-      max-width: 760px;
-      padding: 0 24px;
-    }
-
-    .avatar {
-      width: 92px;
-      height: 92px;
-      border-radius: 50%;
-      background: #fff;
-      margin: 0 auto 18px;
-      overflow: hidden;
-    }
-
-    .avatar img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    .intro {
-      font-size: 0.95rem;
-      opacity: 0.85;
-      margin-bottom: 10px;
-    }
-
-    h1 {
-      font-size: clamp(2.4rem, 5vw, 3.4rem);
-      font-weight: 600;
-      line-height: 1.2;
-      margin-bottom: 18px;
-    }
-
-    .desc {
-      font-size: 0.95rem;
-      opacity: 0.7;
-      max-width: 520px;
-      margin: 0 auto 28px;
-      line-height: 1.6;
-    }
-
-    .buttons {
-      display: flex;
-      justify-content: center;
-      gap: 16px;
-    }
-
-    .primary {
-      padding: 12px 26px;
-      border-radius: 999px;
-      background: linear-gradient(135deg, #ff4fd8, #ff8f6b);
-      border: none;
-      color: #111;
-      font-weight: 500;
-      cursor: pointer;
-    }
-
-    .secondary {
-      padding: 12px 26px;
-      border-radius: 999px;
-      background: rgba(255,255,255,0.08);
-      border: 1px solid rgba(255,255,255,0.2);
-      color: #fff;
-      cursor: pointer;
-    }
-
-    .header-controls {
-      display: flex;
-      gap: 10px;
-      align-items: center;
-    }
-
-    /* Light theme overrides */
-    body.light {
-      background: linear-gradient(180deg,#f6f7fb 0%, #e9eefc 100%);
-      color: #0b1220;
-    }
-
-    body.light nav {
-      background: rgba(11,18,32,0.04);
-    }
-
-    body.light nav a {
-      color: #0b1220;
-      opacity: 0.9;
-    }
-
-    body.light .cta {
-      color: #0b1220;
-      border-color: rgba(11,18,32,0.06);
-      background: rgba(255,255,255,0.7);
-    }
-
-    body.light .secondary {
-      background: rgba(11,18,32,0.04);
-      color: #0b1220;
-      border-color: rgba(11,18,32,0.06);
-    }
-
-    body.light header {
-      background: rgba(249, 250, 251, 0.8);
-    }
-
-    html{
-      scroll-behavior: smooth;
-    }
-
-    #About {
-      padding: 60px 24px;
-      max-width: 900px;
-      margin: 0 auto;
-      display: flex;
-      flex-direction: column;
-      flex-wrap: wrap;
-    }
-
-    .top {
-      text-align: center;
-      margin-bottom: 40px;
-    }
-
-    .about-introduction {
-      color: #ff4fd8;
-      font-weight: 500;
-      margin-bottom: 8px;
-      margin-top: 12px;
-    }
-
-    .about-heading {
-      font-size: 1.7rem;
-      font-weight: 600;
-      margin-bottom: -15px;
-    }
-
-    .bottom {
-      display: flex;
-      gap: 40px;
-      align-items: stretch;
-      justify-content: space-between;
-    }
-
-    .first {
-      flex-shrink: 0;
-    }
-
-    .first img {
-      width: 280px;
-      height: 100%;
-      object-fit: cover;
-      border-radius: 12px;
-    }
-
-    .second {
-      flex: 1;
-    }
-
-    .about-description {
-      margin-bottom: 24px;
-      line-height: 1.6;
-      opacity: 0.85;
-    }
-
-    .education,
-    .project,
-    .languages {
-      border: 1px solid rgba(255,255,255,0.1);
-      border-radius: 12px;
-      padding: 15px;
-      flex: 1;
-      min-width: 150px;
-    }
-
-    .skills {
-      display: flex;
-      gap: 40px;
-      flex-wrap: wrap;
-      margin-bottom: 24px;
-    }
-
-    .skill-heading {
-      font-weight: 600;
-      margin-bottom: 8px;
-    }
-
-    ul {
-      list-style: none;
-    }
-
-    li {
-      margin-bottom: 6px;
-      opacity: 0.8;
-    }
-
-    .tools ul {
-      display: flex;
-      gap: 20px;
-      flex-wrap: wrap;
-    }
-
-    .tools li {
-      background-color: rgba(255,255,255,0.08);
-      padding: 8px 12px 8px 36px;
-      border-radius: 8px;
-      background-position: left 8px center;
-      background-size: 20px 20px;
-    }
-
-    .vs {
-      background-image: url('vscode-dark.png');
-      background-repeat: no-repeat;
-    }
-
-    .git {
-      background-image: url('github-image.png');
-      background-repeat: no-repeat;
-    }
-
-    .codepen {
-      background-image: url('codepen-image.png');
-      background-repeat: no-repeat;
-    }
-
-    #services {
-      padding: 60px 24px;
-      max-width: 900px;
-      margin: 0 auto;
-      text-align: center;
-    }
-
-    .servs {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 24px;
-      margin-top: 40px;
-    }
-
-    .tech, .web, .styling, .apps {
-      background: rgba(255,255,255,0.08);
-      border-radius: 12px;
-      padding: 20px;
-      text-align: left;
-    }
-
-    .intro-services {
-      color: #ff4fd8;
-      font-weight: 500;
-      margin-bottom: 8px;
-      margin-top: 12px;
-      text-transform: uppercase;
-    }
-
-    .description-services {
-      max-width: 600px;
-      margin: 0 auto;
-      opacity: 0.8;
-      line-height: 1.6;
-    }
-
-    @media (max-width: 768px) {
-      header {
-        padding: 20px 28px;
-      }
-      nav {
-        display: none;
-      }
-    }
-  </style>
+  <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
   <section id="Home">
@@ -348,9 +13,9 @@
         <nav>
           <a href="#Home">Home</a>
           <a href="#About">About</a>
-          <a href="#Services">Services</a>
+          <a href="#services">Services</a>
           <a href="#Work">My Work</a>
-          <a href="#Contact">Contact Me</a>
+          <a href="#contact">Contact Me</a>
         </nav>
       <div class="header-controls">
         <button id="theme-toggle" class="cta" aria-label="Toggle theme">🌙</button>
@@ -361,12 +26,12 @@
     <main>
       <section class="hero">
         <div class="avatar">
-          <img src="avatar1.jpg" alt="avatar"/>
+          <img src="photo 1.jpg" alt="avatar"/>
         </div>
         <div class="intro">Hi! I'm Kenneth Anthony Ng 👋</div>
-        <h1>frontend web developer<br/>based in London.</h1>
+        <h1>frontend web developer<br/>based in Palembang.</h1>
         <p class="desc">
-          I am a frontend developer from California, with 3+ years of experience in multiple companies like Microsoft, Meta and Apple.
+          I am a student from IGS(ignatius global school) studying in grade 8, with 2+ years of experience in web development. 
         </p>
         <div class="buttons">
           <button class="primary">Contact me →</button>
@@ -382,7 +47,7 @@
     </div>
     <div class="bottom">
       <div class="first">
-        <img src="avatar1.jpg" alt="avatar"/>
+        <img src="photo 1.jpg" alt="avatar"/>
       </div>
       <div class="second">
         <div class="about-description">
@@ -410,8 +75,7 @@
             <div class="skill-heading">Projects</div>
             <ul>
               <li>Portfolio Website</li>
-              <li>Calculator</li>
-              <li>To-do List</li>
+              <li>Combination Between JavaScript, HTML, and CSS</li>
             </ul>
           </div>
         </div>
@@ -426,12 +90,11 @@
       </div>
     </div>
   </section>
-  <section id="Services">
-    <!-- Services content goes here -->
-     <div class="intro-services">
+  <section id="services">
+     <div class="int-services">
         what i offer
      </div>
-     <h1>my services</h1>
+     <h1>My Services</h1>
      <div class="description-services">
         I offer a variety of services including web design, development, and consulting. My goal is to help you create a strong online presence that effectively communicates your brand and engages your audience.
      </div>
@@ -444,7 +107,7 @@
         </div>
         <div class="styling">
           <img src="" alt="">
-          <h2>Designing</h2>
+          <h2>Website Designing</h2>
           <p>I provide professional UI/UX design services to enhance user experience and engagement.</p>
           <a href="#">Read more -></a>
         </div>
@@ -462,7 +125,251 @@
         </div>
      </div>
   </section>
+  <section id="Work">
+    <div class="workintro">
+      My Portofolio
+    </div>
+    <div class="worktitle">
+      My Latest Work
+    </div>
+    <div class="workcomment">
+      Welcome to my web development portofolio! Explore a collection of projects showcasing my expertise in front and development.
+    </div>
+    <div class="workplace">
+      <div class="workplace-set">
+        <div class="column">
+          <div class="card">
+            <a href="#"><img src="image1.png" alt="#"></a>
+            <div class="container">
+              <div class="part1"><h2>Function Operator</h2><p class="title">4 AUGUST</p></div>
+              <div class="part2"><h1><a href="4AUGUST/index.html">↗</a></h1></div>
+            </div>
+          </div>
+        </div>
+        <div class="column">
+          <div class="card">
+            <a href="#"><img src="image2.png" alt="#"></a>
+            <div class="container">
+              <div class="part1"><h2>Drawing Board</h2><p class="title">4 NOVEMBER</p></div>
+              <div class="part2"><h1><a href="4NOVEMBER/index.html">↗</a></h1></div>
+            </div>
+          </div>
+        </div>
+        <div class="column">
+          <div class="card">
+            <a href="#"><img src="image3.png" alt="#"></a>
+            <div class="container">
+              <div class="part1"><h2>Scroll Animation</h2><p class="title">7 OCTOBER</p></div>
+              <div class="part2"><h1><a href="7OCTOBER/index.html">↗</a></h1></div>
+            </div>
+          </div>
+        </div>
+        <div class="column">
+          <div class="card">
+            <a href="#"><img src="image4.png" alt="#"></a>
+            <div class="container">
+              <div class="part1"><h2>Weight Conversion</h2><p class="title">5 AUGUST</p></div>
+              <div class="part2"><h1><a href="5AUGUST/index.html">↗</a></h1></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="workplace-set">
+        <div class="column">
+          <div class="card">
+            <a href="#"><img src="image5.png" alt="#"></a>
+            <div class="container">
+              <div class="part1"><h2>Indonesia Hospital</h2><p class="title">8 SEPTEMBER</p></div>
+              <div class="part2"><h1><a href="8SEPTEMBER/index.html">↗</a></h1></div>
+            </div>
+          </div>
+        </div>
+        <div class="column">
+          <div class="card">
+            <a href="#"><img src="image6.png" alt="#"></a>
+            <div class="container">
+              <div class="part1"><h2>Theather Ticket Shop</h2><p class="title">9 SEPTEMBER</p></div>
+              <div class="part2"><h1><a href="9SEPTEMBER/index.html">↗</a></h1></div>
+            </div>
+          </div>
+        </div>
+        <div class="column">
+          <div class="card">
+            <a href="#"><img src="image7.png" alt="#"></a>
+            <div class="container">
+              <div class="part1"><h2>X Operator Program</h2><p class="title">12 AUGUST</p></div>
+              <div class="part2"><h1><a href="12AUGUST/index.html">↗</a></h1></div>
+            </div>
+          </div>
+        </div>
+        <div class="column">
+          <div class="card">
+            <a href="#"><img src="image8.png" alt="#"></a>
+            <div class="container">
+              <div class="part1"><h2>Typing Numbers</h2><p class="title">13 JANUARY</p></div>
+              <div class="part2"><h1><a href="13JANUARY/index.html">↗</a></h1></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="workplace-set">
+        <div class="column">
+          <div class="card">
+            <a href="#"><img src="image9.png" alt="#"></a>
+            <div class="container">
+              <div class="part1"><h2>Top Up Mobile Data</h2><p class="title">14 OKTOBER</p></div>
+              <div class="part2"><h1><a href="14OKTOBER/index.html">↗</a></h1></div>
+            </div>
+          </div>
+        </div>
+        <div class="column">
+          <div class="card">
+            <a href="#"><img src="image10.png" alt="#"></a>
+            <div class="container">
+              <div class="part1"><h2>Career Project</h2><p class="title">16 SEPTEMBER</p></div>
+              <div class="part2"><h1><a href="16SEPTEMBER/index.html">↗</a></h1></div>
+            </div>
+          </div>
+        </div>
+        <div class="column">
+          <div class="card">
+            <a href="#"><img src="image11.png" alt="#"></a>
+            <div class="container">
+              <div class="part1"><h2>Character Counter</h2><p class="title">18 NOVEMBER</p></div>
+              <div class="part2"><h1><a href="18NOVEMBER/index.html">↗</a></h1></div>
+            </div>
+          </div>
+        </div>
+        <div class="column">
+          <div class="card">
+            <a href="#"><img src="image12.png" alt="#"></a>
+            <div class="container">
+              <div class="part1"><h2>Number Game</h2><p class="title">19 AUGUST</p></div>
+              <div class="part2"><h1><a href="19AUGUST/index.html">↗</a></h1></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="workplace-set">
+        <div class="column">
+          <div class="card">
+            <a href="#"><img src="image13.png" alt="#"></a>
+            <div class="container">
+              <div class="part1"><h2>Student's Score App</h2><p class="title">20 JANUARY</p></div>
+              <div class="part2"><h1><a href="20JANUARY/index.html">↗</a></h1></div>
+            </div>
+          </div>
+        </div>
+        <div class="column">
+          <div class="card">
+            <a href="#"><img src="image14.png" alt="#"></a>
+            <div class="container">
+              <div class="part1"><h2>Javascript Quiz</h2><p class="title">20 OKTOBER</p></div>
+              <div class="part2"><h1><a href="20OKTOBER/index.html">↗</a></h1></div>
+            </div>
+          </div>
+        </div>
+        <div class="column">
+          <div class="card">
+            <a href="#"><img src="image15.png" alt="#"></a>
+            <div class="container">
+              <div class="part1"><h2>Calculator Program</h2><p class="title">25 AUGUST</p></div>
+              <div class="part2"><h1><a href="25AUGUST/index.html">↗</a></h1></div>
+            </div>
+          </div>
+        </div>
+        <div class="column">
+          <div class="card">
+            <a href="#"><img src="image16.png" alt="#"></a>
+            <div class="container">
+              <div class="part1"><h2>Spotify Program</h2><p class="title">26 AUGUST</p></div>
+              <div class="part2"><h1><a href="26AUGUST/index.html">↗</a></h1></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="workplace-set">
+        <div class="column">
+          <div class="card">
+            <a href="#"><img src="image17.png" alt="#"></a>
+            <div class="container">
+              <div class="part1"><h2>Todo List Program</h2><p class="title">EXAMINATION</p></div>
+              <div class="part2"><h1><a href="ASAS PRAKTIK/index.html">↗</a></h1></div>
+            </div>
+          </div>
+        </div>
+        <div class="column">
+          <div class="card">
+            <a href="#"><img src="image18.png" alt="#"></a>
+            <div class="container">
+              <div class="part1"><h2>Forward-Backward</h2><p class="title">28 OKTOBER</p></div>
+              <div class="part2"><h1><a href="28OKTOBER/index.html">↗</a></h1></div>
+            </div>
+          </div>
+        </div>
+        <div class="column">
+          <div class="card">
+            <a href="#"><img src="image19.png" alt="#"></a>
+            <div class="container">
+              <div class="part1"><h2>Camera Program</h2><p class="title">30 SEPTEMBER</p></div>
+              <div class="part2"><h1><a href="30SEPTEMBER/index.html">↗</a></h1></div>
+            </div>
+          </div>
+        </div>
+        <div class="column">
+          <div class="card">
+            <a href="#"><img src="image20.png" alt="#"></a>
+            <div class="container">
+              <div class="part1"><h2>Password Generator</h2><p class="title">3 NOVEMBER</p></div>
+              <div class="part2"><h1><a href="3NOVEMBER/index.html">↗</a></h1></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="show">Show More -></div>
+  </section>
+  <section id="contact">
+    <div class="contact-container">
+      <div class="contact-content">
+        <h2 class="contact-heading">Get In Touch</h2>
+        <p class="contact-subtitle">Have a project in mind? Let's work together!</p>
+        
+        <form class="contact-form">
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" required>
+          </div>
+          
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required>
+          </div>
+          
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="5" required></textarea>
+          </div>
+          
+          <button type="submit" class="primary">Send Message</button>
+        </form>
+
+        <div class="contact-info">
+          <h3>Or reach me directly at:</h3>
+          <p><a href="mailto:your-email@example.com">kennethanthonyng@gmail.com</a></p>
+          <div class="social-links">
+            <a href="#" title="GitHub">GitHub</a>
+            <a href="#" title="LinkedIn">LinkedIn</a>
+            <a href="#" title="Twitter">Twitter</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
   <script>
+    // Javascript AI dan YT
     (function(){
       const btn = document.getElementById('theme-toggle');
       const body = document.body;
@@ -490,6 +397,55 @@
         }
       });
     })();
+
+    const showBtn = document.querySelector('.show');
+    const workplacesets = document.querySelectorAll('.workplace-set');
+    let visibleSets = 1;
+    let showAll = false;
+
+    for (let i = 1; i < workplacesets.length; i++) {
+      workplacesets[i].classList.add('hidden');
+    }
+
+    showBtn.addEventListener('click', function() {
+      if (!showAll) {
+        for (let i = visibleSets; i < workplacesets.length; i++) {
+          workplacesets[i].classList.remove('hidden');
+        }
+        visibleSets = workplacesets.length;
+        showBtn.textContent = 'Show Less ←';
+        showAll = true;
+      } else {
+        for (let i = 1; i < workplacesets.length; i++) {
+          workplacesets[i].classList.add('hidden');
+        }
+        visibleSets = 1;
+        showBtn.textContent = 'Show More →';
+        showAll = false;
+      }
+    });
+
+    const slide = document.querySelectorAll('.slide');
+    const bks = document.getElementById('carousel-bks');
+    const nextBtn = document.getElementById('next');
+    const prevBtn = document.getElementById('prev');
+
+    let currentIndex = 0
+
+    function showSlide(index){
+      bks.style.transform = `translateX(-${index * 100}%)`;
+    }
+
+    if (nextBtn && prevBtn && slide.length > 0) {
+      nextBtn.addEventListener('click', () => {
+        currentIndex = (currentIndex + 1) % slide.length;
+        showSlide(currentIndex);
+      });
+      prevBtn.addEventListener('click', () => {
+        currentIndex = (currentIndex - 1 + slide.length) % slide.length;
+        showSlide(currentIndex);
+      });
+    }
   </script>
 </body>
 </html>

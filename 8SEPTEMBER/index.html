@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>8 September 2025</title>
+    <style>
+        h1{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        @media(max-width:667px){
+            .out{
+                width: 100%;
+                height: 100vh;
+                display: block;
+                flex-wrap: wrap;
+            }
+        }
+
+        .inner{
+            margin-top: 5%;
+            background-color: rgba(0, 255, 255, 0.324);
+            width: 400px;
+            height: 350px;
+            border-radius: 10px;
+            border: 2px solid black;
+            box-shadow: 8px 8px 0px 0px rgba(0, 0, 0, 0.299);
+        }
+
+        .out{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 5%;
+        }
+
+        h3{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 21pt;
+            font-weight: bold;
+        }
+        p{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 45pt;
+            margin-top: 20%;
+            font-weight: bold;
+        }
+        .button{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20%;
+        }
+
+        button{
+            padding: 10px;
+            padding-left: 25px;
+            padding-right: 25px;
+            border-radius: 5px;
+            border: none;
+            color: azure;
+            font-size: 15pt;
+        }
+
+        .minus {
+            background-color: red;
+        }
+
+        .reset {
+            background-color: gray;
+        }
+        
+        .plus {
+            background-color: green;
+        }
+    </style>
+</head>
+<body>
+    <h1>Rumah sakit indonesia raya</h1>
+    <div class="out">
+        <div class="inner">
+            <h3>Counter 1</h3>
+            <p id="number"><span>D</span>0</p>
+            <div class="button">
+                <button id="minus" class="minus" onclick="kurang()"> - </button>
+                <button id="reset" class="reset" onclick="reset()">reset</button>
+                <button id="plus" class="plus" onclick="tambah()"> + </button>
+            </div>
+        </div>
+        <div class="inner">
+            <h3>Counter 2</h3>
+            <p id="numberic"><span>A</span>0</p>
+            <div class="button">
+                <button id="minuses" class="minus" onclick="kurangs()"> - </button>
+                <button id="resets" class="reset" onclick="resets()">reset</button>
+                <button id="pluses" class="plus" onclick="tambahs()"> + </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let number = 0;
+        function ubahTampilan(){
+            document.getElementById('number').textContent = `D${number}`;
+            document.getElementById('plus').disabled = number === 10;
+            document.getElementById('minus').disabled = number === 0;
+        }
+
+        function tambah(){
+            number++;
+            ubahTampilan();
+        }
+
+        function kurang(){
+            if(number > 0){
+                number--;
+                ubahTampilan();
+            }
+        }
+
+        function reset(){
+            number = 0;
+            ubahTampilan();
+        }
+
+        let numberic = 0;
+
+        function changes(){
+            document.getElementById('numberic').textContent = `A${numberic}`;
+            document.getElementById('pluses').disabled = numberic === 10;
+            document.getElementById('minuses').disabled = numberic === 0;
+        }
+
+        function tambahs(){
+            numberic++;
+            changes();
+        }
+
+        function kurangs(){
+            if(numberic > 0){
+                numberic--;
+                changes();
+            }
+        }
+
+        function resets(){
+            numberic = 0;
+            changes();
+        }
+    </script>
+</body>
+</html>

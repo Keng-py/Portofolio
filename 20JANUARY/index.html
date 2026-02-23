@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>20 Januari 2026</title>
+    <style>
+        body{
+            font-family: Arial, sans-serif;
+            background: linear-gradient(300deg,blue,aliceblue,blue,aliceblue);
+            margin: 0;
+            padding: 20px;
+            background-repeat: no-repeat;
+            height: 93vh;
+            overflow-y: none;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .bungkus{
+            max-width: 600px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            animation: second-glow 3s infinite;
+            border-radius: 5px;
+        }
+        h2{
+            text-align: center;
+            animation: text-glow 2s infinite;
+        }
+        input[type="text"], input[type="number"]{
+            width: calc(33% - 12px);
+            padding: 10px;
+            margin: 5px;
+            box-sizing: border-box;
+        }
+
+        button{
+            padding: 10px 20px;
+            background: linear-gradient(300deg,yellow,green,yellow,green);
+            color: rgb(117, 117, 225);
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: 0.8s ease-in-out;
+            margin-top: 25px;
+            animation: text-glow 2s infinite;
+            width: 50%;
+            margin-left: 25%;
+        }
+
+        button:hover{
+            scale: 1.1;
+
+            animation: border-glow 3s infinite,text-glow 3s infinite;
+            background: linear-gradient(300deg,green,yellow,green,yellow);
+        }
+        table{
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+        th, td{
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: center;
+        }
+        th{
+            background-color: #f2f2f2;
+        }
+        .rata-rata{
+            margin-top: 20px;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        .table-container {
+            max-height: 200px;
+            overflow-y: auto;
+            margin-top: 20px;
+            scrollbar-color: black white;
+        }
+
+        table::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        @keyframes secondary-glow {
+            0%, 100% {
+                box-shadow: 0 0 10px rgba(17, 75, 201, 0.963), 0 0 20px rgba(17, 75, 201, 0.963), 0 0 30px rgba(17, 75, 201, 0.963);
+            }
+            50% {
+                box-shadow: 0 0 5px rgb(16, 173, 241), 0 0 8px rgb(16, 173, 241), 0 0 20px rgb(16, 173, 241);
+            }
+        }
+
+        @keyframes border-glow {
+            0%, 100% {
+                box-shadow: 0 0 10px rgb(250, 2, 2), 0 0 20px rgb(250, 2, 2), 0 0 30px rgb(250, 2, 2);
+            }
+            50% {
+                box-shadow: 0 0 10px rgb(217, 213, 4), 0 0 20px rgb(217, 213, 4), 0 0 30px rgb(217, 213, 4);
+            }
+        }
+
+        @keyframes second-glow {
+            0%, 100% {
+                box-shadow: 0 0 20px rgb(2, 250, 209), 0 0 30px rgb(2, 250, 209), 0 0 40px rgb(2, 250, 209);
+            }
+            50% {
+                box-shadow: 0 0 20px rgb(4, 4, 217), 0 0 30px rgb(4, 4, 217), 0 0 40px rgb(4, 4, 217);
+            }
+        }
+
+        @keyframes ash-glow {
+            0%, 100% {
+                box-shadow: 0 0 10px black, 0 0 20px black, 0 0 30px black;
+            }
+            25%, 50% {
+                box-shadow: 0 0 10px gray, 0 0 20px gray, 0 0 30px gray;
+            }
+        }
+
+        @keyframes text-glow {
+            0%, 100% {
+                text-shadow:
+                    0 0 5px #0ff,
+                    0 0 10px #0ff,
+                    0 0 20px #0ff,
+                    0 0 40px #0ff;
+            }
+            50% {
+                text-shadow:
+                    0 0 4px rgb(158, 236, 236),
+                    0 0 6px rgb(158, 236, 236),
+                    0 0 12px rgb(158, 236, 236),
+                    0 0 22px rgb(158, 236, 236);
+            }
+        }
+
+        @media(max-width:667px){
+            body{
+                height: 94vh;
+            }
+            .bungkus{
+                max-width: 300px;
+                padding: 10px;
+                margin-left: -2px;
+                max-height: 300vh;
+            }
+            table{
+                font-size: 10.3pt;
+                width: 30%;
+            }
+
+            button{
+                margin-top: 20px;
+            }
+
+            input[type="text"], input[type="number"]{
+                width: calc(100% - 12px);
+                margin: 5px 0;
+                border: 1px solid #ccc;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="bungkus">
+        <h2>Aplikasi Add Nilai Siswa</h2>
+        <input type="text" id="nama" placeholder="input nama siswa">
+        <input type="number" id="nilai" placeholder="input nilai siswa">
+        <input type="number" id="kehadiran" placeholder="input kehadiran siswa">
+
+        <button onclick="tambahSiswa()">Input Siswa</button>
+
+        <div class="table-container">
+            <table>
+                <tr>
+                    <th>Nama</th>
+                    <th>Nilai</th>
+                    <th>Kehadiran</th>
+                    <th>Grade</th>
+                    <th>Status</th>
+                </tr>
+                <tbody id="tableSiswa"></tbody>
+            </table>
+        </div>
+
+        <div class="rata-rata" id="ratarata"></div>
+
+    </div>
+
+    <script>
+        const daftarSiswa = []
+
+        function tambahSiswa(){
+            const nama = document.getElementById('nama').value
+            const nilai = parseFloat(document.getElementById('nilai').value)
+            const kehadiran= parseFloat(document.getElementById('kehadiran').value)
+
+            // validasi form input
+            if (nama === "" || isNaN(nilai) || isNaN(kehadiran)){
+                alert('Semua form harus terisi');
+                return;
+            }
+
+            // VALIDASI FORM JIKA MENGINPUTKAN KURANG DARI 0
+            if(nilai < 0 || nilai > 100 || kehadiran < 0 || kehadiran > 100){
+                alert('Nilai dan kehadiran harus 0 s/d 100')
+                return;
+            }
+
+            let grade = ""
+            if(nilai >= 85){
+                grade = "A"
+            }
+            else if(nilai >= 75){
+                grade = "B"
+            }
+            else if(nilai >= 60){
+                grade = "C"
+            }
+            else{
+                grade = "D"
+            }
+
+            let status = ""
+            if(nilai >= 75 && kehadiran >= 80){
+                status = "Lulus"
+            }
+            else{
+                status = "Tidak Lulus"
+            }
+
+            const siswa = {
+                nama,
+                nilai,
+                kehadiran,
+                grade,
+                status
+            }
+
+            daftarSiswa.push(siswa)
+            tampilkanSiswa()
+            hitungRataRata()
+
+            // reset form
+            document.getElementById('nama').value = ""
+            document.getElementById('nilai').value = ""
+            document.getElementById('kehadiran').value = ""
+        }
+
+        function tampilkanSiswa(){
+            const tabel = document.getElementById('tableSiswa')
+            tabel.innerHTML = ""
+
+            daftarSiswa.forEach(siswa => {
+                const row = document.createElement('tr')
+
+                row.innerHTML = `
+                    <td>${siswa.nama}</td>
+                    <td>${siswa.nilai}</td>
+                    <td>${siswa.kehadiran}</td>
+                    <td>${siswa.grade}</td>
+                    <td>${siswa.status}</td>
+                `
+
+                tabel.appendChild(row);
+            })
+        }
+
+        function hitungRataRata(){
+            let totalNilai = 0
+
+            daftarSiswa.forEach(siswa => {
+                totalNilai += siswa.nilai
+            })
+
+            const rataRata = totalNilai / daftarSiswa.length
+            document.getElementById('ratarata').innerText = `
+                Rata-rata Nilai Siswa: ${rataRata.toFixed(2)}
+            `;
+        }
+    </script>
+</body>
+</html>

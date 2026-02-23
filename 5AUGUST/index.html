@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Konversi Berat</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            font-family: 'Times New Roman', Times, serif;
+        }
+        
+        body{
+            padding: 3%;
+            background-color: #BDAAAA;
+        }
+
+        h3 {
+            font-weight: bold;
+            background-color: #D9D9D9;
+            align-items: center;
+            display: flex;
+            justify-content: center;
+            border-radius: 4px;
+            font-size: 24px;
+            height: 20px;
+            padding-top: 20px;
+            padding-bottom: 20px;
+            box-shadow: 0 5px 10px 5px rgba(0, 0, 0, 0.459);
+        }
+
+        .plo{
+            padding-top: 5%;
+            display: flex;
+            width: 100%;
+            height: 100%;
+            gap: 5%;
+        }
+
+        .part{
+            padding: 20px;
+            border-radius: 5px;
+            background-color: #D9D9D9;
+            display: grid;
+            gap: 10px;
+            padding-bottom: 20%;
+            width: 50%;
+            height: 100px;
+            box-shadow: 0 5px 10px 5px rgba(0, 0, 0, 0.459);
+        }
+
+        select{
+            border-radius: 3px;
+            padding: 2%;
+            border: none;
+        }
+
+        input{
+            border: none;
+            border-radius: 3px;
+            padding: 2%;
+        }
+
+        button{
+            cursor: pointer;
+            margin-top: 20px;
+            padding-top: 3%;
+            background-color: #0FAC46;
+            border: none;
+            border-radius: 5px;
+            width: 18%;
+            color: azure;
+            padding: 2%;
+            box-shadow: 0 5px 10px 5px rgba(0, 0, 0, 0.459);
+        }
+
+        .part2{
+            padding: 20px;
+            border-radius: 5px;
+            background-color: #D9D9D9;
+            display: grid;
+            padding-bottom: 20%;
+            width: 50%;
+            height: 100px;
+            justify-content: center;
+            box-shadow: 0 5px 10px 5px rgba(0, 0, 0, 0.459);
+        }
+
+        .part2 span{
+            padding-top: 20px;
+            font-size: 50pt;
+        }
+
+        .part2 p{
+            display: grid;
+            text-align: center;
+        }
+
+        p{
+            font-size: 13pt;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="inner">
+            <h3>KONVERSI SATUAN BERAT BY KENNETH ANTHONY.NG 8A</h3>
+            <div class="plo">
+                <div class="part">
+                    <p>Masukan Angka</p>
+                    <input type="number" id="num1" placeholder="masukan angka">
+                    <p>Masukan Satuan Awal</p>
+                    <select name="" id="awal">
+                        <option value="kg">Kilogram</option>
+                        <option value="hg">Hektogram</option>
+                        <option value="dag">Dekagram</option>
+                        <option value="g">Gram</option>
+                        <option value="dg">Decigram</option>
+                        <option value="cg">Centigram</option>
+                        <option value="mg">Miligram</option>
+                    </select>
+                    <p>Masukan Tujuan Konversi</p>
+                    <select name="" id="akhir">
+                        <option value="kg">Kilogram</option>
+                        <option value="hg">Hektogram</option>
+                        <option value="dag">Dekagram</option>
+                        <option value="g">Gram</option>
+                        <option value="dg">Decigram</option>
+                        <option value="cg">Centigram</option>
+                        <option value="mg">Miligram</option>
+                    </select>
+                    <button onclick="hitung()">Hitung</button>
+                </div>
+                <div class="part2">
+                    <p>Hasil Konversi: <span id="hasil"></span></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        function hitung(){
+            let a = parseFloat(document.getElementById('num1').value);
+            let select1 = document.getElementById('awal').value;
+            let select2 = document.getElementById('akhir').value;
+            if(select1 == "mg" && select2 == "cg"){
+                let jumlah = a / 10
+                document.getElementById('hasil').innerHTML = jumlah+"cg";
+            }
+            else if(select1 == "mg" && select2 == "dg"){
+                let jumlah = a / 100
+                document.getElementById('hasil').innerHTML = jumlah+"dg";
+            }
+            else if(select1 == "mg" && select2 == "g"){
+                let jumlah = a / 1000
+                document.getElementById('hasil').innerHTML = jumlah+"g";
+            }
+            else if(select1 == "mg" && select2 == "dag"){
+                let jumlah = a / 10000
+                document.getElementById('hasil').innerHTML = jumlah+"dag";
+            }
+            else if(select1 == "mg" && select2 == "hg"){
+                let jumlah = a / 100000
+                document.getElementById('hasil').innerHTML = jumlah+"hg";
+            }
+            else if(select1 == "mg" && select2 == "kg"){
+                let jumlah = a / 1000000
+                document.getElementById('hasil').innerHTML = jumlah+"kg";
+            }
+            else if(select1 == "cg" && select2 == "mg"){
+                let jumlah = a * 10
+                document.getElementById('hasil').innerHTML = jumlah+"mg";
+            }
+            else if(select1 == "cg" && select2 == "dg"){
+                let jumlah = a / 10
+                document.getElementById('hasil').innerHTML = jumlah+"dg";
+            }
+            else if(select1 == "cg" && select2 == "g"){
+                let jumlah = a / 100
+                document.getElementById('hasil').innerHTML = jumlah+"g";
+            }
+            else if(select1 == "cg" && select2 == "dag"){
+                let jumlah = a / 1000
+                document.getElementById('hasil').innerHTML = jumlah+"dag";
+            }
+            else if(select1 == "cg" && select2 == "hg"){
+                let jumlah = a / 10000
+                document.getElementById('hasil').innerHTML = jumlah+"hg";
+            }
+            else if(select1 == "cg" && select2 == "kg"){
+                let jumlah = a / 100000
+                document.getElementById('hasil').innerHTML = jumlah+"kg";
+            }
+            else if(select1 == "dg" && select2 == "mg"){
+                let jumlah = a * 100
+                document.getElementById('hasil').innerHTML = jumlah+"mg";
+            }
+            else if(select1 == "dg" && select2 == "cg"){
+                let jumlah = a * 10
+                document.getElementById('hasil').innerHTML = jumlah+"dg";
+            }
+            else if(select1 == "dg" && select2 == "g"){
+                let jumlah = a / 10
+                document.getElementById('hasil').innerHTML = jumlah+"g";
+            }
+            else if(select1 == "dg" && select2 == "dag"){
+                let jumlah = a / 100
+                document.getElementById('hasil').innerHTML = jumlah+"dag";
+            }
+            else if(select1 == "dg" && select2 == "hg"){
+                let jumlah = a / 1000
+                document.getElementById('hasil').innerHTML = jumlah+"hg";
+            }
+            else if(select1 == "dg" && select2 == "kg"){
+                let jumlah = a / 10000
+                document.getElementById('hasil').innerHTML = jumlah+"kg";
+            }
+            else if(select1 == "g" && select2 == "mg"){
+                let jumlah = a * 1000
+                document.getElementById('hasil').innerHTML = jumlah+"mg";
+            }
+            else if(select1 == "g" && select2 == "cg"){
+                let jumlah = a * 100
+                document.getElementById('hasil').innerHTML = jumlah+"dg";
+            }
+            else if(select1 == "g" && select2 == "dg"){
+                let jumlah = a * 10
+                document.getElementById('hasil').innerHTML = jumlah+"g";
+            }
+            else if(select1 == "g" && select2 == "dag"){
+                let jumlah = a / 10
+                document.getElementById('hasil').innerHTML = jumlah+"dag";
+            }
+            else if(select1 == "g" && select2 == "hg"){
+                let jumlah = a / 100
+                document.getElementById('hasil').innerHTML = jumlah+"hg";
+            }
+            else if(select1 == "g" && select2 == "kg"){
+                let jumlah = a / 1000
+                document.getElementById('hasil').innerHTML = jumlah+"kg";
+            }
+            else if(select1 == "dag" && select2 == "mg"){
+                let jumlah = a * 10000
+                document.getElementById('hasil').innerHTML = jumlah+"mg";
+            }
+            else if(select1 == "dag" && select2 == "cg"){
+                let jumlah = a * 1000
+                document.getElementById('hasil').innerHTML = jumlah+"cg";
+            }
+            else if(select1 == "dag" && select2 == "dg"){
+                let jumlah = a * 100
+                document.getElementById('hasil').innerHTML = jumlah+"dg";
+            }
+            else if(select1 == "dag" && select2 == "g"){
+                let jumlah = a * 10
+                document.getElementById('hasil').innerHTML = jumlah+"g";
+            }
+            else if(select1 == "dag" && select2 == "hg"){
+                let jumlah = a / 10
+                document.getElementById('hasil').innerHTML = jumlah+"hg";
+            }
+            else if(select1 == "dag" && select2 == "kg"){
+                let jumlah = a / 100
+                document.getElementById('hasil').innerHTML = jumlah+"kg";
+            }
+            else if(select1 == "hg" && select2 == "mg"){
+                let jumlah = a * 100000
+                document.getElementById('hasil').innerHTML = jumlah+"mg";
+            }
+            else if(select1 == "hg" && select2 == "cg"){
+                let jumlah = a * 10000
+                document.getElementById('hasil').innerHTML = jumlah+"cg";
+            }
+            else if(select1 == "hg" && select2 == "dg"){
+                let jumlah = a * 1000
+                document.getElementById('hasil').innerHTML = jumlah+"dg";
+            }
+            else if(select1 == "hg" && select2 == "g"){
+                let jumlah = a * 100
+                document.getElementById('hasil').innerHTML = jumlah+"g";
+            }
+            else if(select1 == "hg" && select2 == "dag"){
+                let jumlah = a * 10
+                document.getElementById('hasil').innerHTML = jumlah+"dag";
+            }
+            else if(select1 == "hg" && select2 == "kg"){
+                let jumlah = a / 10
+                document.getElementById('hasil').innerHTML = jumlah+"kg";
+            }
+            else if(select1 == "kg" && select2 == "mg"){
+                let jumlah = a * 1000000
+                document.getElementById('hasil').innerHTML = jumlah+"mg";
+            }
+            else if(select1 == "kg" && select2 == "cg"){
+                let jumlah = a * 100000
+                document.getElementById('hasil').innerHTML = jumlah+"cg";
+            }
+            else if(select1 == "kg" && select2 == "dg"){
+                let jumlah = a * 10000
+                document.getElementById('hasil').innerHTML = jumlah+"dg";
+            }
+            else if(select1 == "kg" && select2 == "g"){
+                let jumlah = a * 1000
+                document.getElementById('hasil').innerHTML = jumlah+"g";
+            }
+            else if(select1 == "kg" && select2 == "dag"){
+                let jumlah = a * 100
+                document.getElementById('hasil').innerHTML = jumlah+"dag";
+            }
+            else if(select1 == "kg" && select2 == "hg"){
+                let jumlah = a * 10
+                document.getElementById('hasil').innerHTML = jumlah+"hg";
+            }
+            else if(select1 == "kg" && select2 == "kg"){
+                let jumlah = a
+                document.getElementById('hasil').innerHTML = jumlah+"kg";
+            }
+            else if(select1 == "hg" && select2 == "hg"){
+                let jumlah = a
+                document.getElementById('hasil').innerHTML = jumlah+"hg";
+            }
+            else if(select1 == "dag" && select2 == "dag"){
+                let jumlah = a
+                document.getElementById('hasil').innerHTML = jumlah+"dag";
+            }
+            else if(select1 == "g" && select2 == "g"){
+                let jumlah = a
+                document.getElementById('hasil').innerHTML = jumlah+"g";
+            }
+            else if(select1 == "dg" && select2 == "dg"){
+                let jumlah = a
+                document.getElementById('hasil').innerHTML = jumlah+"dg";
+            }
+            else if(select1 == "cg" && select2 == "cg"){
+                let jumlah = a
+                document.getElementById('hasil').innerHTML = jumlah+"cg";
+            }
+            else if(select1 == "mg" && select2 == "mg"){
+                let jumlah = a
+                document.getElementById('hasil').innerHTML = jumlah+"mg";
+            }
+            else{
+                let jumlah = a
+                document.getElementById('hasil').innerHTML = jumlah;
+            }
+        }
+    </script>
+</body>
+</html>

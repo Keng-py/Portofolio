@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>9 SEPTEMBER 2025</title>
+    <style>
+        /* body{
+            position: relative;
+            overflow: hidden;
+            height: 100vh;
+        } */
+
+        img{
+            width: 20%;
+            height: 20%;
+        }
+
+        @keyframes border-glow {
+            0%, 100% {
+                box-shadow: 0 0 10px rgb(16, 241, 144), 0 0 20px rgb(16, 241, 144), 0 0 30px rgb(16, 241, 144);
+            }
+            50% {
+                box-shadow: 0 0 5px rgb(16, 241, 144), 0 0 8px rgb(16, 241, 144), 0 0 20px rgb(16, 241, 144);
+            }
+        }
+
+        h1{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .inner{
+            width: 33%;
+            height: 430px;
+            display: grid;
+            background-color: brown;
+            border-radius: 10px;
+            padding: 1%;
+        }
+
+        nav {
+            background-color: aliceblue;
+            height: 10%;
+            color: gray;
+            padding: 1%;
+            position: relative;
+            padding-left: 2%;
+        }
+
+        nav .menu {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        nav .menu a {
+            color: gray;
+            text-decoration: none;
+            position: relative;
+            font-size: 14pt;
+        }
+
+        .container {
+            padding: 1%;
+            display: flex;
+            gap: 5px;
+        }
+
+        img {
+            width: 33%;
+            height: 400px;
+            border-radius: 10px;
+            background-color: brown;
+            width: 33%;
+            height: 450px;
+            margin-left: 1%;
+        }
+        .part {
+            width: 33%;
+            height: 300px;
+        }
+
+        .judul {
+            font-weight: bold;
+            font-size: 18pt;
+            color: black;
+        }
+
+        .tonton {
+            background-color: brown;
+            border-radius: 10px;
+            color: aliceblue;
+            padding: 3%;
+            padding-left: 10%;
+            padding-right: 10%;
+            border: none;
+            font-size: 10pt;
+        }
+
+        .download {
+            background-color: aliceblue;
+            color: gray;
+            border-radius: 10px;
+            padding: 3%;
+            font-size: 10pt;
+            padding-left: 9%;
+            padding-right: 9%;
+            border: none;
+            background-color: rgb(80, 93, 104);
+            border: 1px solid black;
+        }
+
+        .buttons {
+            gap: 11%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .judul {
+            font-size: 14pt;
+            margin-left: 13%;
+        }
+
+        .sinop {
+            margin-left: 13%;
+            color: gray;
+            font-weight: bold;
+        }
+
+        .sis {
+            margin-left: 13%;
+            background-color: gray;
+            width: 74%;
+            height: 95%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            overflow-y: scroll;
+        }
+
+        .pilih {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: aliceblue;
+            font-size: 14pt;
+        }
+
+        .select{
+            width: 300px;
+            padding: 3%;
+            border-radius: 5px;
+            background-color: rgb(96, 123, 147);
+            color: black;
+            font-weight: bold;
+            margin-left: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .selects {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 50%;
+            height: 2%;
+        }
+
+        .hargas {
+            margin-left: 13%;
+        }
+
+        .harga {
+            width: 268px;
+            padding: 4%;
+            border-radius: 5px;
+            background-color: rgb(96, 123, 147);
+            color: black;
+            font-weight: bold;
+            margin-left: 13%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .jumlah {
+            margin-left: 13%;
+        }
+
+        .jumlahs {
+            width: 280px;
+            padding: 2%;
+            border-radius: 5px;
+            background-color: rgb(96, 123, 147);
+            color: black;
+            font-weight: bold;
+            margin-left: 13%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: none;
+            text-align: center;
+        }
+
+        .ang {
+            padding-bottom: 10%;
+        }
+
+        .count {
+            width: 297px;
+            padding: 2%;
+            border-radius: 5px;
+            background-color: rgb(96, 123, 147);
+            color: black;
+            font-weight: bold;
+            margin-left: 13%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: none;
+            text-align: center;
+            margin-top: 5%;
+        }
+
+        .totals {
+            width: 280px;
+            padding: 2%;
+            border-radius: 5px;
+            background-color: rgb(96, 123, 147);
+            color: black;
+            font-weight: bold;
+            margin-left: 13%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: none;
+            text-align: center;
+            margin-top: 5%;
+        }
+
+        span {
+            color: black;
+            font-weight: bold;
+        }
+
+        /* #bg-video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            z-index: -1;
+            object-fit: cover;
+            opacity:0.8;
+        } */
+    </style>
+</head>
+<body>
+    <!-- <video autoplay muted loop playsinline id="bg-video">
+        <source src="tiny.mp4" type="video/mp4">
+    </video> -->
+    <nav>
+        <div class="menu-container">
+            <ul class="menu">
+                <li><a href="#"><span>Theater</span></a></li>
+                <li><a href="#">Tv Show</a></li>
+                <li><a href="#">Movies</a></li>
+                <li><a href="#">Videos</a></li>
+            </ul>
+        </div>
+        <hr>
+    </nav>
+    <div class="container">
+        <img id="img">
+        <div class="part">
+            <p class="judul" id="judul">Judul Film</p>
+            <div class="buttons">
+                <button class="tonton">Tonton</button>
+                <button class="download">Download</button>
+            </div>
+            <p class="sinop">Sinopsis</p>
+            <p class="sis" id="sinopsis"></p>
+        </div>
+        <div class="inner">
+            <div class="ang">
+                 <p class="pilih">Pilih Film</p>
+                <div class="selects">
+                    <select class="select" name="" id="film">
+                        <option value="">-- Daftar Film --</option>
+                        <option value="film1">THE CONJURING: LAST RITES</option>
+                        <option value="film2">EXIT 8</option>
+                        <option value="film3">JUJUTSU KAISEN: HIDDEN INVENTORY / PREMATURE DEATH -THE MOVIE</option>
+                        <option value="film4">DEMON SLAYER -KIMETSU NO YAIBA- THE MOVIE: INFINITY CASTLE</option>
+                        <option value="film5">JUMBO</option>
+                        <option value="film6">THE SHADOWS EDGE</option>
+                        <option value="film7">THE LONG WALK</option>
+                        <option value="film8">OPERATION HADAL</option>
+                        <option value="film9">RED SONJA</option>
+                        <option value="film10">GEREJA SETAN</option>
+                    </select>
+                </div>
+                <div class="total">
+                    <p class="hargas">Harga :</p>
+                    <p class="harga" id="harga"></p>
+                </div>
+                <div class="buy">
+                    <p class="jumlah">Jumlah Tiket :</p>
+                    <input class="jumlahs" type="number" name="" id="j_tiket">
+                </div>
+                <button class="count" onclick="hitung()">Hitung</button>
+                <p class="totals">Total bayar : <span id="bayar">0</span></p>
+            </div>
+        </div>
+    </div>
+    <script>
+        let selectElement = document.getElementById('film');
+        let imgElement = document.getElementById('img');
+        let harga;
+        selectElement.addEventListener("change", function(){
+            let selectValue = selectElement.value;
+
+            if(selectValue === "film1"){
+                imgElement.src = 'A.jpg'
+                harga = 50000;
+                document.getElementById('judul').innerHTML = "THE CONJURING: LAST RITES"
+                sinopsis = 'Berdasarkan kisah nyata The Conjuring Last Rites menyuguhkan babak mendebarkan lainnya dari dunia sinematik The Conjuring yang ikonis Vera Farmiga dan Patrick Wilson bersatu kembali untuk satu kasus terakhir sebagai penyelidik paranormal terkenal di kehidupan nyata Ed dan Lorraine Warren dalam sebuah peristiwa yang mendebarkan dan mengerikan dalam kelanjutan kisah dari waralaba yang telah memecahkan rekor box office global'
+            }
+            else if(selectValue === "film2"){
+                imgElement.src = 'B.jpg'
+                harga = 55000;
+                document.getElementById('judul').innerHTML = "EXIT 8"
+                sinopsis = 'Adaptasi dari game thriller terkenal dengan lebih dari satu juta download di seluruh dunia Anda terjebak di lorong kereta bawah tanah yang tak berujung dan kosong berusaha untuk menemukan Exit 8 aturan pencariannya sederhana jangan lewatkan apa pun yang tidak biasa jika Anda menemukan anomali segera kembali jika tidak lanjutkan lalu keluar dari Exit 8 tetapi satu kesalahan kecil akan mengembalikanmu ke awal akankah Anda mencapai tujuannya dan lolos dari koridor tak berujung ini'
+            }
+            else if(selectValue === "film3"){
+                imgElement.src = 'C.jpg'
+                harga = 60000;
+                document.getElementById('judul').innerHTML = "JUJUTSU KAISEN: HIDDEN INVENTORY / PREMATURE DEATH -THE MOVIE"
+                sinopsis = 'Dua yang terkuat masa muda yang tak bisa kembali pada Juni 2018 Yuji Itadori mengizinkan Sukuna si Raja Kutukan bersemayam di dalam tubuhnya pada Desember 2017 Yuta Okkotsu berhasil melepaskan kutukan Rika Orimoto namun waktu terus mundur hingga musim semi tahun 2006 masa di mana Satoru Gojo dan Suguru Geto masih menjadi siswa SMA Jujutsu mereka adalah penyihir jujutsu yang sangat aktif tidak terkalahkan dan menerima misi dari Tengen tokoh penting di dunia jujutsu dengan Teknik Keabadian misi mereka terbagi dua menjadi pengawal sekaligus eksekutor dari gadis bernama Riko Amanai sang Plasma Bintang sosok yang terpilih untuk menyatu dengan Master Tengen demi mempertahankan keberlangsungan dunia jujutsu keduanya menerima misi pengawalan tersebut namun dalam perjalanan muncul seorang pria yang menyebut dirinya Fushiguro seorang pembunuh penyihir yang mencoba membunuh Riko Amanai untuk memastikan keberlangsungan dunia jujutsu mereka pergi untuk melaksanakan misi perlindungan namun saat itu seseorang yang menyebut dirinya pembunuh penyihir bernama Fushiguro ikut campur berusaha membunuh Star Plasma Vessel inilah kisah masa lalu Gojo dan Geto yang kelak menjadi penyihir terkuat dengan kutukan paling jahat kisah perpisahan mereka akan segera terungkap'
+            }
+            else if(selectValue === "film4"){
+                imgElement.src = 'D.jpg'
+                harga = 50000;
+                document.getElementById('judul').innerHTML = "DEMON SLAYER -KIMETSU NO YAIBA- THE MOVIE: INFINITY CASTLE"
+                sinopsis = 'Korps pembasmi iblis dijebak menuju Infinity Castle oleh Muzan di markas besar para iblis itu Tanjiro Nezuko dan para Hashira akan menghadapi iblis iblis bulan atas yang sangat mengerikan'
+            }
+            else if(selectValue === "film5"){
+                imgElement.src = 'E.jpg'
+                harga = 45000;
+                document.getElementById('judul').innerHTML = "JUMBO"
+                sinopsis = 'Don Prince Poetiray anak gemuk yang sering diolok olok dengan panggilan Jumbo ingin membalas perbuatan anak yang suka merundungnya tapi sesosok arwah bernama Meri Quinn Salman meminta pertolongan Don untuk disatukan kembali dengan makam keluarganya yang dirusak'
+            }
+            else if(selectValue === "film6"){
+                imgElement.src = 'F.jpg'
+                harga = 45000;
+                document.getElementById('judul').innerHTML = "THE SHADOWS EDGE"
+                sinopsis = 'Kepolisian Makau memanggil kembali petugas ahli yang sudah pensiun untuk membantu menangkap sekelompok penjahat profesional yang sangat berbahaya'
+            }
+            else if(selectValue === "film7"){
+                imgElement.src = 'G.jpg'
+                harga = 55000;
+                document.getElementById('judul').innerHTML = "OPERATION HADAL"
+                sinopsis = 'Sekelompok remaja berkompetisi dalam kontes tahunan yang dikenal sebagai The Long Walk mereka harus mempertahankan kecepatan berjalan selama waktu tertentu jika tidak mereka akan ditembak seberapa jauh mereka bisa melangkah dari adaptasi yang sangat dinantikan dari novel pertama karya Stephen King dan juga Francis Lawrence sutradara dari film film waralaba The Hunger Games Catching Fire Mockingjay Parts 1 and 2 dan The Ballad of Songbirds and Snakes'
+            }
+            else if(selectValue === "film8"){
+                imgElement.src = 'H.jpg'
+                harga = 50000;
+                sinopsis = 'Anjungan lepas pantai Deep Blue 3 di teritori Tiongkok diduduki oleh tentara bayaran angkatan laut Tiongkok pun bergerak untuk mengusir mereka regu komando Jiao Ling bertarung dengan gagah berani dan berhasil mengambil alih anjungan tersebut sementara perang tersembunyi berlangsung di laut dalam persekongkolan di balik para tentara bayaran itu mulai terbongkar para prajurit angkatan laut Tiongkok kini harus berhadapan dengan tantangan yang mereka duga sebelumnya'
+            }
+            else if(selectValue === "film9"){
+                imgElement.src = 'I.jpg'
+                harga = 45000;
+                sinopsis = 'Diperbudak oleh seorang tiran jahat yang ingin menghancurkan rakyatnya Red Sonja Matilda Lutz harus menyatukan sekelompok prajurit untuk menghadapi Dragan Robert Sheehan The Magnificent dan pasukannya yang mematikan'
+            }
+            else if(selectValue === "film10"){
+                imgElement.src = 'J.jpg'
+                harga = 55000;
+                sinopsis = 'Ribka Kathleen Carolyne mengalami titik terendah dalam hidupnya setelah hamil di luar nikah dan kehilangan calon suaminya Matthew Roy Romagny dalam kecelakaan tragis orang tua Ribka memintanya untuk bersembunyi di luar kota agar tidak ada orang lain yang tau aib tersebut Ribka kemudian bertemu Gladys Maddy Slinger yang memberinya tempat tinggal dan memperkenalkannya pada Hendrik Mongol Stres sang pemimpin sekte sesat gereja setan Ribka perlahan lahan hampir kehilangan jati dirinya dan terjebak dalam ritual ritual gelap yang mengerikan masalah semakin pelik ketika Ribka mengenal sosok Lucifer Jonas Rivanno Wattimena yang hendak menjadikannya pengantin iblis namun di tengah keputusasaan secercah terang datang melalui pengalaman rohani yang membawanya kembali kepada iman yang sejati'
+            }
+            const format = harga.toLocaleString('id-ID');
+            document.getElementById('harga').textContent = `Rp${format}`;
+            document.getElementById('sinopsis').textContent = sinopsis;
+        });
+        function hitung(){
+            let j_tiket = parseFloat(document.getElementById('j_tiket').value);
+            let bayar = harga * j_tiket
+            const format = bayar.toLocaleString('id-ID');
+            document.getElementById('bayar').textContent = `Rp${format}`;
+        }
+    </script>
+</body>
+</html>

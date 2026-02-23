@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Function</title>
+    <style>
+        *{
+            font-family: 'Times New Roman', Times, serif;
+            margin: 10px;
+        }
+        
+        body {
+            background: cyan;
+            margin: 10px;
+            align-items: center;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .inner {
+            justify-content: center;
+            align-items: center;
+            width: 50%;
+            margin-top: 30px;
+            margin-left: 300px;
+            border-radius: 10px;
+            height: 50%;
+            padding: 10px;
+            background: linear-gradient(360deg,red,violet);
+        }
+
+        h1 {
+            display: flex;
+            color: rgb(242, 9, 9);
+            padding-top: 10px;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        input {
+            border-radius: 2px;
+            border: none;
+            border: 2px solid blueviolet;
+            padding: 10px;
+            background-color: rgb(131, 21, 21);
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        select {
+            background-color: rgb(12, 167, 234);
+            color: aqua;
+            padding: 10px;
+            width: 25%;
+        }
+
+        input:hover{
+            border: 3px solid violet;
+        }
+
+        button {
+            padding: 15px;
+            padding-right: 50px;
+            padding-left: 50px;
+            border-radius: 10px;
+            background-color: rgba(243, 235, 235, 0);
+            color: aqua;
+            border: none;
+            transition: 0.3s;
+            border: 3px solid cyan;
+        }
+        button:hover{
+            background-color: brown;
+            color: antiquewhite;
+            border: 1px solid cyan;
+        }
+
+        p {
+            font-size: 14pt;
+        }
+    </style>
+</head>
+<body>
+    <!-- <h1>Function Operator</h1>
+    <p>Masukan angka 1</p>
+    <input id="num1" type="number">
+    <p>Masukan angka 2</p>
+    <input id="num2"type="number">
+    <p>Pilih operator :</p>
+    <select name="" id="operator">
+        <option value="tambah">Tambah</option>
+        <option value="kurang">Kurang</option>
+        <option value="bagi">Bagi</option>
+        <option value="kali">Kali</option>
+    </select>
+    <p>hasil : <span id="hasil"></span></p>
+    <button onclick="btn()">Hitung</button>
+
+    <script>
+        function btn(){
+            let angka1 = parseFloat(document.getElementById('num1').value);
+            let angka2 = parseFloat(document.getElementById('num2').value);
+            let operator = document.getElementById('operator').value;
+            
+            if(operator === 'tambah'){
+                let jumlah = angka1 + angka2
+                document.getElementById('hasil').innerHTML = jumlah;
+            }
+            else if(operator === 'kali'){
+                let jumlah = angka1 * angka2
+                document.getElementById('hasil').innerHTML = jumlah;
+            }
+            else if(operator === 'bagi'){
+                let jumlah = angka1 / angka2
+                document.getElementById('hasil').innerHTML = jumlah;
+            }
+            else {
+                let jumlah = angka1 - angka2
+                document.getElementById('hasil').innerHTML = jumlah;
+            }
+            
+        }
+    </script> -->
+    <div class="container">
+        <div class="inner">
+            <h1>Function operator</h1>
+            <p>Masukan nilai suhu :</p>
+            <input placeholder="ENTER VALUE" id="num1" type="number">
+            <p>Suhu Awal</p>
+            <select name="" id="awal">
+            <option value="celcius">Celcius</option>
+            <option value="reamur">Reamur</option>
+            <option value="farenheit">Farenheit</option>
+            <option value="kelvin">Kelvin</option>
+            </select>
+            <p>Konvert Ke</p>
+            <select name="" id="akhir">
+            <option value="celcius">Celcius</option>
+            <option value="reamur">Reamur</option>
+            <option value="farenheit">Farenheit</option>
+            <option value="kelvin">Kelvin</option>
+            </select>
+            <p>HASIL : <span id="hasil"></span></p>
+            <button onclick="btn()">Hitung</button>
+        </div>
+    </div>
+
+    <script>
+        function btn(){
+            let a1 = parseFloat(document.getElementById('num1').value);
+            let select1 = document.getElementById('awal').value;
+            let select2 = document.getElementById('akhir').value;
+            if(select1 == "celcius" && select2 == "celcius"){
+                let jumlah = a1
+                document.getElementById('hasil').innerHTML = jumlah;
+            }
+            else if(select1 == "celcius" && select2 == "reamur"){
+                let jumlah = 4 / 5 * a1
+                document.getElementById('hasil').innerHTML = jumlah;
+            }
+            else if(select1 == "celcius" && select2 == "farenheit"){
+                let jumlah = 9 / 5 * a1 + 32
+                document.getElementById('hasil').innerHTML = jumlah;
+            }
+            else if(select1 == "celcius" && select2 == "kelvin"){
+                let jumlah = a1 + 273
+                document.getElementById('hasil').innerHTML = jumlah;
+            }
+            else if(select1 == "reamur" && select2 == "celcius"){
+                let jumlah = 5 / 4 * a1
+                document.getElementById('hasil').innerHTML = jumlah;
+            }
+            else if(select1 == "reamur" && select2 == "reamur"){
+                let jumlah = a1
+                document.getElementById('hasil').innerHTML = jumlah;
+            }
+            else if(select1 == "reamur" && select2 == "farenheit"){
+                let jumlah = 9 / 4 * a1 + 32
+                document.getElementById('hasil').innerHTML = jumlah;
+            }
+            else if(select1 == "reamur" && select2 == "kelvin"){
+                let jumlah = 5 / 4 * a1 +273
+                document.getElementById('hasil').innerHTML = jumlah;
+            }
+            else if(select1 == "farenheit" && select2 == "celcius"){
+                let jumlah = 5 / 9 * (a1 - 32)
+                document.getElementById('hasil').innerHTML = jumlah;
+            }
+            else if(select1 == "farenheit" && select2 == "reamur"){
+                let jumlah = 4 / 9 * (a1 - 32)
+                document.getElementById('hasil').innerHTML = jumlah;
+            }
+            else if(select1 == "farenheit" && select2 == "farenheit"){
+                let jumlah = a1
+                document.getElementById('hasil').innerHTML = jumlah;
+            }
+            else if(select1 == "farenheit" && select2 == "kelvin"){
+                let jumlah = 5 / 9 * (a1 - 32) + 273
+                document.getElementById('hasil').innerHTML = jumlah;
+            }
+            else if(select1 == "kelvin" && select2 == "celcius"){
+                let jumlah = a1 - 273
+                document.getElementById('hasil').innerHTML = jumlah;
+            }
+            else if(select1 == "kelvin" && select2 == "reamur"){
+                let jumlah = 4 / 5 * (a1 - 273)
+                document.getElementById('hasil').innerHTML = jumlah;
+            }
+            else if(select1 == "kelvin" && select2 == "farenheit"){
+                let jumlah = 9 / 5 * (a1 - 273) + 32
+                document.getElementById('hasil').innerHTML = jumlah;
+            }
+            else if(select1 == "kelvin" && select2 == "kelvin"){
+                let jumlah = a1
+                document.getElementById('hasil').innerHTML = jumlah;
+            }
+            else{
+                let jumlah = a1
+                document.getElementById('hasil').innerHTML = jumlah;
+            }
+        }
+    </script>
+</body>
+</html>

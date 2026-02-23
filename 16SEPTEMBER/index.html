@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>16 SEPTEMBER</title>
+    <style>
+        body {
+            background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #e0e0e0;
+            background-repeat: no-repeat;
+            height: 100vh;
+            padding: 1%;
+            overflow: hidden;
+        }
+
+        .inner{
+            width: 20%;
+        }
+
+        .modal {
+            display: none;
+            z-index: 99;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            justify-content: center;
+            align-items: center;
+            background-color: #111827;
+            width: 50%;
+            height: 70vh;
+            box-shadow: 0 0 15px #00ffe7;
+            padding: 20px;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+            animation: border-glow 3s infinite;
+            color: #e0f2f1;
+            overflow-y: auto;
+            scrollbar-color: #111827 #43c02d;
+        }
+
+        .modal-content img.inner:hover {
+            transform: scale(1.05);
+            cursor: pointer;
+        }
+
+        .gambar-1, .gambar-2, .gambar-3, .gambar-4 {
+            width: 300px;
+            background-color: #1f2937;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 0 12px rgba(0, 255, 255, 0.2);
+            transition: transform 0.3s;
+        }
+
+        .gambar-1:hover, .gambar-2:hover, .gambar-3:hover, .gambar-4:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 0 18px rgba(0, 255, 255, 0.5);
+        }
+
+        @keyframes border-glow {
+            0%, 100% {
+                box-shadow: 0 0 10px rgb(16, 241, 144), 0 0 20px rgb(16, 241, 144), 0 0 30px rgb(16, 241, 144);
+            }
+            50% {
+                box-shadow: 0 0 5px rgb(16, 241, 144), 0 0 8px rgb(16, 241, 144), 0 0 20px rgb(16, 241, 144);
+            }
+        }
+
+        @keyframes secondary-glow {
+            0%, 100% {
+                box-shadow: 0 0 10px rgba(17, 75, 201, 0.963), 0 0 20px rgba(17, 75, 201, 0.963), 0 0 30px rgba(17, 75, 201, 0.963);
+            }
+            50% {
+                box-shadow: 0 0 5px rgb(16, 173, 241), 0 0 8px rgb(16, 173, 241), 0 0 20px rgb(16, 173, 241);
+            }
+        }
+
+        .close, .close2, .close3, .close4 {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            background-color: #ff4d4d;
+            color: white;
+            font-weight: bold;
+            padding: 8px 14px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: 0.3s all ease-out;
+        }
+
+        .close:hover, .close2:hover, .close3:hover, .close4:hover {
+            background-color: #cc0000;
+            scale: 1.1;
+        }
+
+        h1 {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            animation: pulse-glow 2s infinite;
+            color: #00ffe7;
+            margin-top: 1%;
+            margin-bottom: 4%;
+            text-decoration: underline;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 4%;
+        }
+
+        .img{
+            width: 100%;
+            height: 40vh;
+            border-radius: 5%;
+            animation: secondary-glow 3s infinite;
+            transition: 0.3s all ease;
+            object-fit: cover;
+        }
+
+        .img:hover {
+            transform: scale(1.03);
+            cursor: pointer;
+        }
+
+        .gambar {
+            display: grid;
+        }
+
+        .modal-content img.inner {
+            width: 160px;
+            height: 160px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 5px solid #4a8ce2;
+            box-shadow: 0 8px 20px rgba(74, 144, 226, 0.4);
+            margin-bottom: 25px;
+            transition: transform 0.3s ease;
+            justify-content: center;
+            display: flex;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .modal-content img.inner:hover {
+            transform: scale(1.05);
+            cursor: pointer;
+        }
+
+        @keyframes pulse-glow {
+            0%, 100% {
+                text-shadow:
+                0 0 5px #0ff,
+                0 0 10px #0ff,
+                0 0 20px #0ff,
+                0 0 40px #0ff;
+            }
+            50% {
+                text-shadow:
+                0 0 2px #0ff,
+                0 0 4px #0ff,
+                0 0 10px #0ff,
+                0 0 20px #0ff;
+            }
+        }
+
+        span {
+            color: green;
+            font-weight: bold;
+        }
+
+        .none {
+            color: red;
+            font-weight: bold;
+        }
+
+        .p{
+            margin-left: 67%;
+            color: red;
+        }
+
+        .r {
+            color: green;
+            font-weight: bold;
+        }
+
+        @media(max-width:667px){
+            body{
+                display: block;
+                height: 300vh;
+                overflow: scroll;
+            }
+            .container{
+                height: 100vh;
+                display: grid;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>৹You Might Also Like</h1>
+    <div class="container">
+        <div class="gambar-1">
+            <div class="img1" id="btn"><img class="img" src="avatar1.jpg" alt=""></div>
+            <p>⭐⭐⭐⭐⭐<span style="margin-left: 43%;">35%</span></p>
+            <p class="r">100$ <span class="p"style="text-decoration: line-through;">155$</span></p>
+            <p>Klik di image untuk melihat detail!</p>
+        </div>
+        <div class="gambar-2">
+            <div class="img1" id="btn2"><img class="img" src="avatar3.jpg" alt=""></div>
+            <p>⭐⭐⭐<span style="margin-left: 57%;">30%</span></p>
+            <p class="r">93$ <span class="p"style="text-decoration: line-through;">125$</span></p>
+            <p>Klik di image untuk melihat detail!</p>
+        </div>
+        <div class="gambar-3">
+            <div class="img1" id="btn3"><img class="img" src="avatar4.jpg" alt=""></div>
+            <p>⭐⭐⭐⭐<span style="margin-left: 47%;">20%</span></p>
+            <p class="r">75$ <span class="p"style="text-decoration: line-through;">125$</span></p>
+            <p>Klik di image untuk melihat detail!</p>
+        </div>
+        <div class="gambar-4">
+            <div class="img1" id="btn4"><img class="img" src="avatar7.jpg" alt=""></div>
+            <p>⭐⭐⭐⭐⭐<span style="margin-left: 42%;">10%</span></p>
+            <p class="r">117$ <span class="p"style="text-decoration: line-through;">130$</span></p>
+            <p>Klik di image untuk melihat detail!</p>
+        </div>
+    </div>
+    <div class="modal" id="myModal">
+        <span class="close">CLOSE</span>
+        <div class="modal-content">
+            <div class="card">
+                <div class="card-img">
+                    <img class="inner" src="avatar1.jpg" alt="">
+                    <h3>Name : The Conjuring Last Rites</h3>
+                    <p><strong>Berdasarkan kisah nyata The Conjuring Last Rites menyuguhkan babak mendebarkan lainnya dari dunia sinematik The Conjuring yang ikonis Vera Farmiga dan Patrick Wilson bersatu kembali untuk satu kasus terakhir sebagai penyelidik paranormal terkenal di kehidupan nyata Ed dan Lorraine Warren dalam sebuah peristiwa yang mendebarkan dan mengerikan dalam kelanjutan kisah dari waralaba yang telah memecahkan rekor box office global</strong></p>
+                    <p><strong>Terima Kasih</strong></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal" id="myModal2">
+        <span class="close2">CLOSE</span>
+        <div class="modal-content">
+            <div class="card">
+                <div class="card-img">
+                    <img class="inner" src="avatar3.jpg" alt="">
+                    <h3>Name : Exit 8</h3>
+                    <p><strong>Adaptasi dari game thriller terkenal dengan lebih dari satu juta download di seluruh dunia Anda terjebak di lorong kereta bawah tanah yang tak berujung dan kosong berusaha untuk menemukan Exit 8 aturan pencariannya sederhana jangan lewatkan apa pun yang tidak biasa jika Anda menemukan anomali segera kembali jika tidak lanjutkan lalu keluar dari Exit 8 tetapi satu kesalahan kecil akan mengembalikanmu ke awal akankah Anda mencapai tujuannya dan lolos dari koridor tak berujung ini</strong></p>
+                    <p><strong>Terima Kasih</strong></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal" id="myModal3">
+        <span class="close3">CLOSE</span>
+        <div class="modal-content">
+            <div class="card">
+                <div class="card-img">
+                    <img class="inner" src="avatar4.jpg" alt="">
+                    <h3>Name : Demon Slayer 3</h3>
+                    <p><strong>Korps pembasmi iblis dijebak menuju Infinity Castle oleh Muzan di markas besar para iblis itu Tanjiro Nezuko dan para Hashira akan menghadapi iblis iblis bulan atas yang sangat mengerikan</strong></p>
+                    <p><strong>Terima Kasih</strong></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal" id="myModal4">
+        <span class="close4">CLOSE</span>
+        <div class="modal-content">
+            <div class="card">
+                <div class="card-img">
+                    <img class="inner" src="avatar7.jpg" alt="">
+                    <h3>Nama : Jumbo</h3>
+                    <p><strong>Don Prince Poetiray anak gemuk yang sering diolok olok dengan panggilan Jumbo ingin membalas perbuatan anak yang suka merundungnya tapi sesosok arwah bernama Meri Quinn Salman meminta pertolongan Don untuk disatukan kembali dengan makam keluarganya yang dirusak</strong></p>
+                    <p><strong>Terima Kasih</strong></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let modal = document.getElementById('myModal');
+        let modal2 = document.getElementById('myModal2');
+        let modal3 = document.getElementById('myModal3');
+        let modal4 = document.getElementById('myModal4');
+        let btn = document.getElementById('btn');
+        let btn2 = document.getElementById('btn2');
+        let btn3 = document.getElementById('btn3');
+        let btn4 = document.getElementById('btn4');
+        let span = document.getElementsByClassName('close')[0];
+        let span2 = document.getElementsByClassName('close2')[0];
+        let span3 = document.getElementsByClassName('close3')[0];
+        let span4 = document.getElementsByClassName('close4')[0];
+
+        btn.onclick = function(){
+            modal.style.display = "block";
+        }
+
+        btn2.onclick = function(){
+            modal2.style.display = "block";
+        }
+
+        btn3.onclick = function(){
+            modal3.style.display = "block";
+        }
+
+        btn4.onclick = function(){
+            modal4.style.display = "block";
+        }
+        window.onclick = function(event){
+            if(event.target == span){
+                modal.style.display = "none"
+            }
+            else if(event.target == span2){
+                modal2.style.display = "none"
+            }
+            else if(event.target == span3){
+                modal3.style.display = "none"
+            }
+            else if(event.target == span4){
+                modal4.style.display = "none"
+            }
+        }
+    </script>
+</body>
+</html>

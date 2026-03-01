@@ -696,6 +696,14 @@ body.light .contact-info a {
   color: #ff4fd8;
 }
 
+.column {
+  transition: all 0.3s ease;
+}
+
+.column:hover {
+  scale: 1.05;
+}
+
 @keyframes border-glow {
   0%,
   100% {

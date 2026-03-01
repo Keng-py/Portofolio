@@ -132,6 +132,12 @@ h1 {
   color: #111;
   font-weight: 500;
   cursor: pointer;
+  transition: 0.2s all ease;
+}
+
+.primary:hover {
+  scale: 1.1;
+  animation: first-glow 2s infinite;
 }
 
 .secondary {
@@ -697,6 +703,16 @@ body.light .contact-info a {
   }
   50% {
     box-shadow: 0 0 5px #a22ae7, 0 0 8px #a22ae7, 0 0 20px #a22ae7;
+  }
+}
+
+@keyframes first-glow {
+  0%,
+  100% {
+    box-shadow: 0 0 10px #ff4fd8, 0 0 20px #ff4fd8, 0 0 30px #ff4fd8;
+  }
+  50% {
+    box-shadow: 0 0 5px #ff8f6b, 0 0 8px #ff8f6b, 0 0 20px #ff8f6b;
   }
 }
 

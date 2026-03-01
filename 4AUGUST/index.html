@@ -13,6 +13,7 @@
         body {
             background: cyan;
             margin: 10px;
+            display: flex;
             align-items: center;
             justify-content: center;
             align-items: center;
@@ -21,9 +22,7 @@
         .inner {
             justify-content: center;
             align-items: center;
-            width: 50%;
-            margin-top: 30px;
-            margin-left: 300px;
+            width: 100%;
             border-radius: 10px;
             height: 50%;
             padding: 10px;
@@ -78,6 +77,28 @@
 
         p {
             font-size: 14pt;
+        }
+
+        @media(max-width:667px){
+            *{
+                margin: 0;
+            }
+
+            body {
+                margin: 0;
+            }
+
+            .inner {
+                display: grid;
+                justify-content: center;
+                align-items: center;
+                width: 100%;
+                border-radius: 10px;
+                height: 50%;
+                margin: 0;
+                padding: 10px;
+            }
+
         }
     </style>
 </head>

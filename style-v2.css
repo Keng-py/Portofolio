@@ -968,7 +968,8 @@ body.light .contact-info a {
   }
 
   .card {
-    height: auto;
+    width: 100%;
+    height: 250px;
   }
 
   .container {

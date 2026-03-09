@@ -318,7 +318,7 @@ li {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
   gap: 24px;
-  margin-top: 40px;
+  margin-top: 20px;
 }
 
 .tech,
@@ -327,7 +327,7 @@ li {
 .apps {
   border: 1px solid rgba(255, 255, 255, 0.25);
   border-radius: 12px;
-  padding: 20px;
+  padding: 10px;
   text-align: left;
   display: grid;
   justify-content: center;
